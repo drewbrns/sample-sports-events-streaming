@@ -4,10 +4,33 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CI.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>KodaboveAssessment.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3A6AF5D728A250070072F759</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A6AF5ED28A250080072F759</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A6AF5F728A250080072F759</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
