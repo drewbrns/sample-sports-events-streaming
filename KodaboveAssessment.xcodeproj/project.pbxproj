@@ -16,6 +16,7 @@
 		3A6AF5F328A250080072F759 /* KodaboveAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF5F228A250080072F759 /* KodaboveAssessmentTests.swift */; };
 		3A6AF5FD28A250080072F759 /* KodaboveAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF5FC28A250080072F759 /* KodaboveAssessmentUITests.swift */; };
 		3A6AF5FF28A250080072F759 /* KodaboveAssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF5FE28A250080072F759 /* KodaboveAssessmentUITestsLaunchTests.swift */; };
+		3A6AF60D28A2E7B80072F759 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 3A6AF60C28A2E7B80072F759 /* Nuke */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6AF60D28A2E7B80072F759 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = KodaboveAssessment;
+			packageProductDependencies = (
+				3A6AF60C28A2E7B80072F759 /* Nuke */,
+			);
 			productName = KodaboveAssessment;
 			productReference = 3A6AF5D828A250070072F759 /* KodaboveAssessment.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = 3A6AF5CF28A250070072F759;
+			packageReferences = (
+				3A6AF60B28A2E7B80072F759 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = 3A6AF5D928A250070072F759 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -454,7 +462,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -482,7 +490,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -602,6 +610,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A6AF60B28A2E7B80072F759 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A6AF60C28A2E7B80072F759 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A6AF60B28A2E7B80072F759 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3A6AF5D028A250070072F759 /* Project object */;
 }
