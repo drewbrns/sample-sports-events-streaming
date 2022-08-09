@@ -1,4 +1,5 @@
 [![Swift Version][swift-image]][swift-url]
+[![CI](https://github.com/drewbrns/kodabove-ios-assessment/actions/workflows/CI.yml/badge.svg)](https://github.com/drewbrns/kodabove-ios-assessment/actions/workflows/CI.yml)
 # Kodabove iOS Assessment
 A simple app to display a list of events, stream selected event and a list of schedule (EPG)
 
