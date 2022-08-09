@@ -1,0 +1,20 @@
+disabled_rules: # rule identifiers to exclude from running
+  - identifier_name
+  - nesting
+  - function_parameter_count
+  - type_name
+opt_in_rules: # some rules are only opt-in
+  - control_statement
+  - empty_count
+  - trailing_newline
+  - colon
+  - comma
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+function_body_length:
+  - 20 # warning
+  - 30 # error
+file_length:
+  - 200 # warning
+  - 500 # error
