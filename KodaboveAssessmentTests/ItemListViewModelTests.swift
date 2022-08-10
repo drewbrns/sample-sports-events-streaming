@@ -22,6 +22,13 @@ class ItemListViewModelTests: XCTestCase {
             id: "2",
             title: "Manchester Utd vs Juventus",
             subTitle: "Champions League",
+            date: Date(),
+            imageURL: URL(string: "https://via.placeholder.com/150")!
+        ),
+        Item(
+            id: "3",
+            title: "Arsenal vs Ajax",
+            subTitle: "Champions League",
             date: .distantPast,
             imageURL: URL(string: "https://via.placeholder.com/150")!
         )
@@ -44,10 +51,6 @@ class ItemListViewModelTests: XCTestCase {
         sut.loadData()
 
         XCTAssertEqual(
-            sut.viewModel(at: 0),
-            ItemViewModel(item: items[0])
-        )
-        XCTAssertEqual(
             sut.viewModel(at: 1),
             ItemViewModel(item: items[1])
         )
@@ -59,8 +62,11 @@ class ItemListViewModelTests: XCTestCase {
 
         let date1 = sut.viewModel(at: 0).date
         let date2 = sut.viewModel(at: 1).date
+        let date3 = sut.viewModel(at: 2).date
 
         XCTAssertTrue(date1 < date2)
+        XCTAssertTrue(date2 < date3)
+        XCTAssertTrue(date1 < date3)
     }
 
     // MARK: - Helpers

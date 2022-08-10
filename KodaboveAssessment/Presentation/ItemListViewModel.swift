@@ -38,22 +38,26 @@ final class ItemListViewModel: ObservableObject, ItemList {
         guard !isLoadingData else { return }
 
         self.isLoadingData = true
-        self.dataLoader.fetch(page: self.currentPage, limit: limit) { result in
-            self.isLoadingData = false
+        self.dataLoader.fetch(page: self.currentPage, limit: limit) { [weak self] result in
+            self?.isLoadingData = false
 
             switch result {
             case .success(let items):
-                self.currentPage += 1
-                self.items = items
-                self.onFetchComplete = true
+                self?.currentPage += 1
+                self?.items = self?.sort(items: items) ?? [Item]()
+                self?.onFetchComplete = true
             case .failure(let error):
-                self.onError = error
+                self?.onError = error
             }
         }
     }
 
     func viewModel(at index: Int) -> ItemViewModel {
         return ItemViewModel(item: items[index])
+    }
+
+    private func sort(items: [Item]) -> [Item] {
+        return items.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
     }
 
 }
