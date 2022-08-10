@@ -12,10 +12,14 @@
 		3A6AF5E328A250070072F759 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A6AF5E128A250070072F759 /* Main.storyboard */; };
 		3A6AF5E528A250080072F759 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A6AF5E428A250080072F759 /* Assets.xcassets */; };
 		3A6AF5E828A250080072F759 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A6AF5E628A250080072F759 /* LaunchScreen.storyboard */; };
-		3A6AF5F328A250080072F759 /* KodaboveAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF5F228A250080072F759 /* KodaboveAssessmentTests.swift */; };
 		3A6AF60D28A2E7B80072F759 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 3A6AF60C28A2E7B80072F759 /* Nuke */; };
 		3A6AF61928A3AACE0072F759 /* ListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6AF61828A3AACE0072F759 /* ListItemCell.xib */; };
 		3A6AF61B28A3AAEB0072F759 /* ListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF61A28A3AAEB0072F759 /* ListItemCell.swift */; };
+		3A6AF61E28A44B990072F759 /* ItemListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF61D28A44B990072F759 /* ItemListViewModelTests.swift */; };
+		3A6AF62028A44CF70072F759 /* ItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF61F28A44CF70072F759 /* ItemListViewModel.swift */; };
+		3A6AF62228A44DC80072F759 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF62128A44DC80072F759 /* Item.swift */; };
+		3A6AF62428A453D80072F759 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF62328A453D80072F759 /* ItemViewModel.swift */; };
+		3A6AF62628A459A50072F759 /* ItemLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF62528A459A50072F759 /* ItemLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +41,14 @@
 		3A6AF5E728A250080072F759 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A6AF5E928A250080072F759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A6AF5EE28A250080072F759 /* KodaboveAssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KodaboveAssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A6AF5F228A250080072F759 /* KodaboveAssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KodaboveAssessmentTests.swift; sourceTree = "<group>"; };
 		3A6AF61828A3AACE0072F759 /* ListItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListItemCell.xib; sourceTree = "<group>"; };
 		3A6AF61A28A3AAEB0072F759 /* ListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemCell.swift; sourceTree = "<group>"; };
+		3A6AF61C28A44B990072F759 /* KodaboveAssessmentTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KodaboveAssessmentTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		3A6AF61D28A44B990072F759 /* ItemListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewModelTests.swift; sourceTree = "<group>"; };
+		3A6AF61F28A44CF70072F759 /* ItemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewModel.swift; sourceTree = "<group>"; };
+		3A6AF62128A44DC80072F759 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		3A6AF62328A453D80072F759 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
+		3A6AF62528A459A50072F759 /* ItemLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +107,8 @@
 		3A6AF5F128A250080072F759 /* KodaboveAssessmentTests */ = {
 			isa = PBXGroup;
 			children = (
-				3A6AF5F228A250080072F759 /* KodaboveAssessmentTests.swift */,
+				3A6AF61D28A44B990072F759 /* ItemListViewModelTests.swift */,
+				3A6AF61C28A44B990072F759 /* KodaboveAssessmentTests-Bridging-Header.h */,
 			);
 			path = KodaboveAssessmentTests;
 			sourceTree = "<group>";
@@ -113,6 +123,7 @@
 		3A6AF60F28A2FE760072F759 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				3A6AF62128A44DC80072F759 /* Item.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -120,6 +131,8 @@
 		3A6AF61028A2FE7F0072F759 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3A6AF61F28A44CF70072F759 /* ItemListViewModel.swift */,
+				3A6AF62328A453D80072F759 /* ItemViewModel.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -140,6 +153,7 @@
 		3A6AF61228A2FEAB0072F759 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				3A6AF62528A459A50072F759 /* ItemLoader.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -231,6 +245,7 @@
 					};
 					3A6AF5ED28A250080072F759 = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 						TestTargetID = 3A6AF5D728A250070072F759;
 					};
 				};
@@ -304,9 +319,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6AF62228A44DC80072F759 /* Item.swift in Sources */,
 				3A6AF5DC28A250070072F759 /* AppDelegate.swift in Sources */,
+				3A6AF62028A44CF70072F759 /* ItemListViewModel.swift in Sources */,
+				3A6AF62628A459A50072F759 /* ItemLoader.swift in Sources */,
 				3A6AF5DE28A250070072F759 /* SceneDelegate.swift in Sources */,
 				3A6AF61B28A3AAEB0072F759 /* ListItemCell.swift in Sources */,
+				3A6AF62428A453D80072F759 /* ItemViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A6AF5F328A250080072F759 /* KodaboveAssessmentTests.swift in Sources */,
+				3A6AF61E28A44B990072F759 /* ItemListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,15 +544,23 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 23NB49RD34;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.drewbrns.KodaboveAssessmentTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "KodaboveAssessmentTests/KodaboveAssessmentTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KodaboveAssessment.app/KodaboveAssessment";
@@ -545,15 +572,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 23NB49RD34;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.drewbrns.KodaboveAssessmentTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "KodaboveAssessmentTests/KodaboveAssessmentTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KodaboveAssessment.app/KodaboveAssessment";

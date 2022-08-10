@@ -6,3 +6,25 @@
 //
 
 import Foundation
+
+protocol ItemLoader {
+    func fetch(
+        page: Int,
+        limit: Int,
+        completion: @escaping (Result<[Item], Error>) -> Void
+    )
+}
+
+final class RemoteItemLoader: ItemLoader {
+    
+    private var resource: String
+
+    init(resource: String) {
+        self.resource = resource
+    }
+
+    func fetch(page: Int, limit: Int, completion: @escaping (Result<[Item], Error>) -> Void) {
+
+    }
+
+}
