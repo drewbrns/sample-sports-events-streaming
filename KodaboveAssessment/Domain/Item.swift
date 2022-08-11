@@ -18,11 +18,12 @@ struct Item: Identifiable, Codable {
 
 extension Item: Equatable {
     static func == (lhs: Item, rhs: Item) -> Bool {
-        lhs.id == rhs.id &&
-        lhs.title == rhs.title &&
-        lhs.subTitle == rhs.subTitle &&
-        lhs.date == rhs.date &&
-        lhs.imageURL == rhs.imageURL &&
-        lhs.videoURL == rhs.videoURL
+        lhs.id == rhs.id
+    }
+}
+
+extension Item: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
