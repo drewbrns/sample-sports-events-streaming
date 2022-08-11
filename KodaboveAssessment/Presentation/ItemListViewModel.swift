@@ -18,12 +18,13 @@ protocol ItemList {
 }
 
 final class ItemListViewModel: ObservableObject, ItemList {
-    @Published private(set) var onFetchComplete: Bool = false
+    @Published private(set) var onFetchComplete: [IndexPath]?
     @Published private(set) var onError: Error?
 
     var isEmpty: Bool { items.isEmpty }
-    var totalCount: Int { items.count }
+    private(set) var totalCount: Int = 0
     var currentCount: Int { items.count }
+
     private var isLoadingData = false
     private var currentPage = 1
 
@@ -44,8 +45,16 @@ final class ItemListViewModel: ObservableObject, ItemList {
             switch result {
             case .success(let items):
                 self?.currentPage += 1
-                self?.items = self?.sort(items: items) ?? [Item]()
-                self?.onFetchComplete = true
+                self?.totalCount = items.count // assuming that api told us the total number of items
+
+                let newItems = self?.sort(items: items) ?? [Item]()
+                self?.items = newItems
+                let indexPathsToReload = IndexPath.generateIndexPaths(
+                    rowStart: items.count,
+                    rowEnd: newItems.count
+                )
+                self?.onFetchComplete = indexPathsToReload
+
             case .failure(let error):
                 self?.onError = error
             }
@@ -58,6 +67,19 @@ final class ItemListViewModel: ObservableObject, ItemList {
 
     private func sort(items: [Item]) -> [Item] {
         return items.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
+    }
+
+    //TODO:
+    private func handlePullToRefresh() {
+        // don't increase page count (need to preserve this incase user wants to scroll down the list again)
+        // inset at the top of the list
+        // reload entire data?
+    }
+
+    private func handlePaginatedData() {
+        // increase page count
+        // append data to end of array
+        // calcuate new indexes to reload
     }
 
 }
