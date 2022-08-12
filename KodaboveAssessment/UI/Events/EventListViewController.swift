@@ -17,14 +17,33 @@ class EventListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        registerCell()
+        bindFetchCompletePublisher()
+
         vm?.loadData(limit: PageSize.limit)
     }
 }
 
 extension EventListViewController {
 
+    private func configureTableView() {
+        registerCell()
+        removeEmptyCellsFromBottom()
+    }
+
     private func bindVmPublishers() {
         bindFetchCompletePublisher()
+    }
+
+    private func registerCell() {
+        self.tableView.register(
+            UINib(nibName: ListItemCell.cellId, bundle: nil),
+            forCellReuseIdentifier: ListItemCell.cellId
+        )
+    }
+
+    private func removeEmptyCellsFromBottom() {
+        self.tableView.tableFooterView = UIView()
     }
 
     private func bindFetchCompletePublisher() {
@@ -37,7 +56,7 @@ extension EventListViewController {
 extension EventListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return vm?.totalCount ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -46,17 +46,18 @@ class EventListControllerTests: XCTestCase {
 
     func test_viewDidLoad_performs_loadData() {
         let sut = makeSut(items: items)
-        let vc = sut.vc
-        let dataLoader = sut.dataLoader
 
-        XCTAssertNotNil(vc.vm)
-        XCTAssertEqual(dataLoader.didCall, 0)
-        XCTAssertTrue(vc.vm!.isEmpty)
+        XCTAssertNotNil(sut.vc.vm)
+        XCTAssertEqual(sut.dataLoader.didCall, 0)
+        XCTAssertTrue(sut.vc.vm!.isEmpty)
 
-        vc.viewDidLoad()
+        sut.vc.viewDidLoad()
 
-        XCTAssertEqual(dataLoader.didCall, 1)
-        XCTAssertFalse(vc.vm!.isEmpty)
+        XCTAssertEqual(sut.dataLoader.didCall, 1)
+        XCTAssertFalse(sut.vc.vm!.isEmpty)
+
+        XCTAssertEqual(sut.vc.tableView.numberOfSections, 1)
+        XCTAssertEqual(sut.vc.tableView.numberOfRows(inSection: 0), 3)
     }
 
     // MARK: Helpers
@@ -88,4 +89,24 @@ class EventListControllerTests: XCTestCase {
             completion(.success(self.items))
         }
     }
+}
+
+private extension UITableView {
+
+    func cell(at row: Int) -> ListItemCell? {
+        return dataSource?.tableView(self, cellForRowAt: IndexPath(row: row, section: 0)) as? ListItemCell
+    }
+
+    func title(at row: Int) -> String? {
+        return cell(at: row)?.itemTitleLabel.text
+    }
+
+    func itemSubTitle(at row: Int) -> String? {
+        return cell(at: row)?.itemSubTitleLabel.text
+    }
+
+    func date(at row: Int) -> String? {
+        return cell(at: row)?.itemDateLabel.text
+    }
+
 }
