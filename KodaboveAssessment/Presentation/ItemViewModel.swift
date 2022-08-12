@@ -13,6 +13,18 @@ struct ItemViewModel {
     var id: String {
         return item.id
     }
+    var title: String {
+        item.title
+    }
+    var subTitle: String {
+        item.subTitle
+    }
+    var imageUrl: URL {
+        item.imageURL
+    }
+    var videoUrl: URL? {
+        item.videoURL
+    }
     var date: Date {
         return item.date
     }

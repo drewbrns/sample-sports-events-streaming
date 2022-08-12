@@ -13,23 +13,16 @@ class EventListControllerTests: XCTestCase {
     let items = [
         Item(
             id: "1",
-            title: "Chelsea vs Manchester Utd",
-            subTitle: "EPL",
-            date: .distantFuture,
+            title: "Arsenal vs Ajax",
+            subTitle: "Champions League",
+            date: .distantPast,
             imageURL: URL(string: "https://via.placeholder.com/150")!
         ),
         Item(
             id: "2",
-            title: "Manchester Utd vs Juventus",
-            subTitle: "Champions League",
-            date: Date(),
-            imageURL: URL(string: "https://via.placeholder.com/150")!
-        ),
-        Item(
-            id: "3",
-            title: "Arsenal vs Ajax",
-            subTitle: "Champions League",
-            date: .distantPast,
+            title: "Chelsea vs Manchester Utd",
+            subTitle: "EPL",
+            date: .distantFuture,
             imageURL: URL(string: "https://via.placeholder.com/150")!
         )
     ]
@@ -57,20 +50,28 @@ class EventListControllerTests: XCTestCase {
         XCTAssertFalse(sut.vc.vm!.isEmpty)
 
         XCTAssertEqual(sut.vc.tableView.numberOfSections, 1)
-        XCTAssertEqual(sut.vc.tableView.numberOfRows(inSection: 0), 3)
+        XCTAssertEqual(sut.vc.tableView.numberOfRows(inSection: 0), 2)
     }
 
     func test_init_cell() {
         let sut = makeSut(items: items)
-
         sut.vc.viewDidLoad()
 
         let cell = sut.vc.tableView.cell(at: 0)
-
         XCTAssertNotNil(cell?.itemTitleLabel)
         XCTAssertNotNil(cell?.itemSubTitleLabel)
         XCTAssertNotNil(cell?.itemDateLabel)
         XCTAssertNotNil(cell?.itemImageView)
+    }
+
+    func test_cellForRowAtIndexPath_renders_cell_correctly() throws {
+        let sut = makeSut(items: items)
+        sut.vc.viewDidLoad()
+
+        XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.title(at: 0)), "Arsenal vs Ajax")
+        XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.title(at: 1)), "Chelsea vs Manchester Utd")
+        XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.subTitle(at: 0)), "Champions League")
+        XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.subTitle(at: 1)), "EPL")
     }
 
     // MARK: Helpers
@@ -114,7 +115,7 @@ private extension UITableView {
         return cell(at: row)?.itemTitleLabel.text
     }
 
-    func itemSubTitle(at row: Int) -> String? {
+    func subTitle(at row: Int) -> String? {
         return cell(at: row)?.itemSubTitleLabel.text
     }
 

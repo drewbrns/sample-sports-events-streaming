@@ -27,4 +27,14 @@ class ListItemCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func configure(with vm: ItemViewModel?) {
+        if let vm = vm {
+            itemTitleLabel.text = vm.title
+            itemSubTitleLabel.text = vm.subTitle
+        } else {
+            itemTitleLabel.text = nil
+            itemSubTitleLabel.text = nil
+        }
+    }
+
 }

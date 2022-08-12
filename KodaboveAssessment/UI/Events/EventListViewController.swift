@@ -66,6 +66,7 @@ extension EventListViewController: UITableViewDataSource {
             fatalError("Unexpected error")
         }
 
+        cell.configure(with: vm?.viewModel(at: indexPath.row))
         return cell
     }
 
