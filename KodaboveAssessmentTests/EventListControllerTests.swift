@@ -35,7 +35,7 @@ class EventListControllerTests: XCTestCase {
     ]
 
     func test_init() {
-        let sut = makeSut()
+        let sut = makeSut().vc
 
         XCTAssertNotNil(sut.tableView)
         XCTAssertNotNil(sut.tableView.delegate)
@@ -44,41 +44,48 @@ class EventListControllerTests: XCTestCase {
         XCTAssertNotNil(sut.vm)
     }
 
-    // MARK: Helpers
+    func test_viewDidLoad_performs_loadData() {
+        let sut = makeSut(items: items)
+        let vc = sut.vc
+        let dataLoader = sut.dataLoader
 
-    func makeSut(items: [Item] = []) -> EventListViewController {
+        XCTAssertNotNil(vc.vm)
+        XCTAssertEqual(dataLoader.didCall, 0)
+        XCTAssertTrue(vc.vm!.isEmpty)
 
-        let vm = ItemListViewModel(items: items)
+        vc.viewDidLoad()
 
-        let sut = AppStoryboard.main.viewController(viewControllerClass: EventListViewController.self)
-        _ = sut.view
-        sut.vm = vm
-        return sut
+        XCTAssertEqual(dataLoader.didCall, 1)
+        XCTAssertFalse(vc.vm!.isEmpty)
     }
 
-    final class ItemListViewModel: ItemList {
-        private var items = [Item]()
+    // MARK: Helpers
 
-        var isEmpty: Bool {
-            return items.isEmpty
-        }
-        var totalCount: Int {
-            return items.count
-        }
-        var currentCount: Int {
-            return items.count
-        }
+    func makeSut(items: [Item] = []) -> (vc: EventListViewController, dataLoader: DataLoaderSpy) {
+
+        let dataLoader = DataLoaderSpy(items: items)
+        let vm = ItemListViewModel(dataLoader: dataLoader)
+
+        let vc = AppStoryboard.main.viewController(
+            viewControllerClass: EventListViewController.self
+        )
+        _ = vc.view
+        vc.vm = vm
+
+        return (vc, dataLoader)
+    }
+
+    final class DataLoaderSpy: ItemLoader {
+        private(set) var didCall = 0
+        private var items: [Item]
 
         init(items: [Item]) {
             self.items = items
         }
 
-        func loadData(limit: Int) {
-        }
-
-        func viewModel(at index: Int) -> ItemViewModel {
-            ItemViewModel(item: self.items[index])
+        func fetch(page: Int, limit: Int, completion: @escaping (Result<[Item], Error>) -> Void) {
+            didCall += 1
+            completion(.success(self.items))
         }
     }
-
 }

@@ -19,3 +19,7 @@ struct Server {
         }
     }
 }
+
+struct PageSize {
+    static var limit = 25
+}

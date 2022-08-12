@@ -11,10 +11,26 @@ import Combine
 class EventListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var vm: ItemList?
+    private var cancellables: Set<AnyCancellable> = []
+    var vm: ItemListViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        vm?.loadData(limit: PageSize.limit)
+    }
+}
+
+extension EventListViewController {
+
+    private func bindVmPublishers() {
+        bindFetchCompletePublisher()
+    }
+
+    private func bindFetchCompletePublisher() {
+        vm?.$onFetchComplete.sink { [weak self] _ in
+            self?.tableView.reloadData()
+        }.store(in: &cancellables)
     }
 }
 
