@@ -40,6 +40,7 @@ class EventListControllerTests: XCTestCase {
         XCTAssertNotNil(sut.tableView)
         XCTAssertNotNil(sut.tableView.delegate)
         XCTAssertNotNil(sut.tableView.dataSource)
+        XCTAssertNotNil(sut.tableView.prefetchDataSource)
         XCTAssertNotNil(sut.vm)
     }
 

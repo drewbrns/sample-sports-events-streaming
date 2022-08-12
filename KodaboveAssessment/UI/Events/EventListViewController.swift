@@ -15,11 +15,7 @@ class EventListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.delegate = self
-        tableView.dataSource = self
     }
-
 }
 
 extension EventListViewController: UITableViewDataSource {
@@ -30,6 +26,13 @@ extension EventListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+
+}
+
+extension EventListViewController: UITableViewDataSourcePrefetching {
+
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
     }
 
 }
