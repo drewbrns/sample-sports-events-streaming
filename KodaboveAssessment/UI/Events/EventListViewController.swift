@@ -17,7 +17,7 @@ class EventListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        registerCell()
+        configureTableView()
         bindFetchCompletePublisher()
 
         vm?.loadData(limit: PageSize.limit)
@@ -60,7 +60,13 @@ extension EventListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ListItemCell.cellId, for: indexPath
+        ) as? ListItemCell else {
+            fatalError("Unexpected error")
+        }
+
+        return cell
     }
 
 }

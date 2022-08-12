@@ -60,6 +60,19 @@ class EventListControllerTests: XCTestCase {
         XCTAssertEqual(sut.vc.tableView.numberOfRows(inSection: 0), 3)
     }
 
+    func test_init_cell() {
+        let sut = makeSut(items: items)
+
+        sut.vc.viewDidLoad()
+
+        let cell = sut.vc.tableView.cell(at: 0)
+
+        XCTAssertNotNil(cell?.itemTitleLabel)
+        XCTAssertNotNil(cell?.itemSubTitleLabel)
+        XCTAssertNotNil(cell?.itemDateLabel)
+        XCTAssertNotNil(cell?.itemImageView)
+    }
+
     // MARK: Helpers
 
     func makeSut(items: [Item] = []) -> (vc: EventListViewController, dataLoader: DataLoaderSpy) {
