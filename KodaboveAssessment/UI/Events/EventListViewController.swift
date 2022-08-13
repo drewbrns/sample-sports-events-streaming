@@ -17,10 +17,14 @@ class EventListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let remoteItemLoader = RemoteItemLoader(resource: .events)
+        vm = ItemListViewModel(dataLoader: remoteItemLoader)
+
         configureTableView()
         bindFetchCompletePublisher()
 
         vm?.loadData(limit: PageSize.limit)
+
     }
 }
 
@@ -29,6 +33,7 @@ extension EventListViewController {
     private func configureTableView() {
         registerCell()
         removeEmptyCellsFromBottom()
+        configureTableViewCellHeight()
     }
 
     private func bindVmPublishers() {
@@ -36,19 +41,26 @@ extension EventListViewController {
     }
 
     private func registerCell() {
-        self.tableView.register(
+        tableView.register(
             UINib(nibName: ListItemCell.cellId, bundle: nil),
             forCellReuseIdentifier: ListItemCell.cellId
         )
     }
 
     private func removeEmptyCellsFromBottom() {
-        self.tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
+    }
+
+    private func configureTableViewCellHeight() {
+        tableView.estimatedRowHeight = 124
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     private func bindFetchCompletePublisher() {
         vm?.$onFetchComplete.sink { [weak self] _ in
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }.store(in: &cancellables)
     }
 }
