@@ -14,6 +14,7 @@ protocol ItemList {
     var currentCount: Int { get }
 
     func loadData(limit: Int)
+    func loadData(limit: Int, every: Int)
     func viewModel(at index: Int) -> ItemViewModel
 }
 
@@ -58,6 +59,10 @@ final class ItemListViewModel: ObservableObject, ItemList {
                 self?.onError = error
             }
         }
+    }
+
+    func loadData(limit: Int, every: Int) {
+
     }
 
     func viewModel(at index: Int) -> ItemViewModel {

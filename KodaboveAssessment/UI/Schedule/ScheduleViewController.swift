@@ -16,6 +16,11 @@ class ScheduleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        configureTableView()
+        bindVmPublishers()
+
+        vm?.loadData(limit: PageSize.limit, every: 30)
     }
 
 }
