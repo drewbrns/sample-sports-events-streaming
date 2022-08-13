@@ -39,7 +39,10 @@ class ScheduleViewControllerTests: XCTestCase {
 
     // MARK: Helpers
 
-    func makeSut(items: [Item] = []) -> (vc: ScheduleViewController, dataLoader: DataLoaderSpy) {
+    func makeSut(
+        items: [Item] = [],
+        expectation: XCTestExpectation? = nil
+    ) -> (vc: ScheduleViewController, dataLoader: DataLoaderSpy) {
 
         let dataLoader = DataLoaderSpy(items: items)
         let vm = ItemListViewModel(dataLoader: dataLoader)
@@ -51,20 +54,6 @@ class ScheduleViewControllerTests: XCTestCase {
         vc.vm = vm
 
         return (vc, dataLoader)
-    }
-
-    final class DataLoaderSpy: ItemLoader {
-        private(set) var didCall = 0
-        private var items: [Item]
-
-        init(items: [Item]) {
-            self.items = items
-        }
-
-        func fetch(page: Int, limit: Int, completion: @escaping (Result<[Item], Error>) -> Void) {
-            didCall += 1
-            completion(.success(self.items))
-        }
     }
 
 }

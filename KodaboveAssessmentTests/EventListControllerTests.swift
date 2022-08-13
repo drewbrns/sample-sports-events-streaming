@@ -89,20 +89,6 @@ class EventListControllerTests: XCTestCase {
 
         return (vc, dataLoader)
     }
-
-    final class DataLoaderSpy: ItemLoader {
-        private(set) var didCall = 0
-        private var items: [Item]
-
-        init(items: [Item]) {
-            self.items = items
-        }
-
-        func fetch(page: Int, limit: Int, completion: @escaping (Result<[Item], Error>) -> Void) {
-            didCall += 1
-            completion(.success(self.items))
-        }
-    }
 }
 
 private extension UITableView {

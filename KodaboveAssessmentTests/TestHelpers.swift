@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import XCTest
+@testable import KodaboveAssessment
 
 final class TimeTraveler {
     private var date = Date()
@@ -31,4 +33,20 @@ final class TimeTraveler {
         return date
     }
 
+}
+
+final class DataLoaderSpy: ItemLoader {
+    private(set) var didCall = 0
+    var expectation: XCTestExpectation?
+    var items: [Item] = []
+    
+    init(items: [Item]) {
+        self.items = items
+    }
+
+    func fetch(page: Int, limit: Int, completion: @escaping (Result<[Item], Error>) -> Void) {
+        didCall += 1
+        expectation?.fulfill()
+        completion(.success(self.items))
+    }
 }

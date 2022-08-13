@@ -88,23 +88,11 @@ class ItemListViewModelTests: XCTestCase {
     func makeSut(
         items: [Item] = [],
         expectation: XCTestExpectation? = nil
-    ) -> (vm: ItemListViewModel, loader: ItemLoaderStub) {
-        let itemLoader = ItemLoaderStub()
-        itemLoader.items = items
+    ) -> (vm: ItemListViewModel, loader: DataLoaderSpy) {
+        let itemLoader = DataLoaderSpy(items: items)
         itemLoader.expectation = expectation
-        return (ItemListViewModel(dataLoader: itemLoader), itemLoader)
-    }
-
-    final class ItemLoaderStub: ItemLoader {
-        private(set) var didCall = 0
-        var expectation: XCTestExpectation?
-        var items: [Item] = []
-
-        func fetch(page: Int, limit: Int, completion: @escaping (Result<[Item], Error>) -> Void) {
-            didCall += 1
-            expectation?.fulfill()
-            completion(.success(self.items))
-        }
+        let viewModel = ItemListViewModel(dataLoader: itemLoader)
+        return (viewModel, itemLoader)
     }
 
 }
