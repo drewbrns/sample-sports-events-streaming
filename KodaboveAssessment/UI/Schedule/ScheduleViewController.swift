@@ -13,6 +13,7 @@ class ScheduleViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var cancellables: Set<AnyCancellable> = []
     var vm: ItemListViewModel?
+    var fetchDataWaitPeriod: TimeInterval = 30
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class ScheduleViewController: UIViewController {
         configureTableView()
         bindVmPublishers()
 
-        vm?.loadData(limit: PageSize.limit, every: 30)
+        vm?.loadData(limit: PageSize.limit, every: fetchDataWaitPeriod)
     }
 
 }

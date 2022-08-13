@@ -37,6 +37,29 @@ class ScheduleViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.vm)
     }
 
+    func test_viewDidLoad_performs_loadData() {
+        let exp = expectation(description: "Fetch Data")
+        exp.expectedFulfillmentCount = 1
+
+        let sut = makeSut(items: items, expectation: exp)
+
+        XCTAssertNotNil(sut.vc.vm)
+        XCTAssertEqual(sut.dataLoader.didCall, 0)
+        XCTAssertTrue(sut.vc.vm!.isEmpty)
+
+        sut.vc.viewDidLoad()
+
+        wait(for: [exp], timeout: 5)
+
+        XCTAssertEqual(sut.dataLoader.didCall, 1)
+        XCTAssertFalse(sut.vc.vm!.isEmpty)
+
+        XCTAssertEqual(sut.vc.tableView.numberOfSections, 1)
+        XCTAssertEqual(sut.vc.tableView.numberOfRows(inSection: 0), 2)
+
+        sut.vc.vm?.stopLoadingData()
+    }
+
     // MARK: Helpers
 
     func makeSut(
@@ -45,6 +68,8 @@ class ScheduleViewControllerTests: XCTestCase {
     ) -> (vc: ScheduleViewController, dataLoader: DataLoaderSpy) {
 
         let dataLoader = DataLoaderSpy(items: items)
+        dataLoader.expectation = expectation
+
         let vm = ItemListViewModel(dataLoader: dataLoader)
 
         let vc = AppStoryboard.main.viewController(
@@ -52,6 +77,7 @@ class ScheduleViewControllerTests: XCTestCase {
         )
         _ = vc.view
         vc.vm = vm
+        vc.fetchDataWaitPeriod = 1
 
         return (vc, dataLoader)
     }
