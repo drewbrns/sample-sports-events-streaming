@@ -7,13 +7,13 @@
 
 import Foundation
 
+enum ItemType {
+    case event
+    case schedule
+}
+
 struct ItemViewModel {
     private var item: Item
-
-    enum ItemType {
-        case event
-        case schedule
-    }
     private var itemType: ItemType
 
     var id: String {
@@ -63,18 +63,30 @@ struct ItemViewModel {
     }
 
     private var dateForDisplayForSchedule: String {
-        if self.date.isToday {
+        Formatter.dateFormatter.dateFormat = getDateFormat(for: self.date)
+        let dateString = Formatter.dateFormatter.string(from: self.date)
 
-        } else if self.date.isTomorrow {
-
+        if self.date.isTomorrow {
+            return "Tomorrow, \(dateString)"
+        } else if self.date.isToday {
+            return "Today, \(dateString)"
         } else if self.date.isInPast {
+            return dateString
+        } else {
+            let today = Date()
+            let days = self.date.daysFrom(date: today)
+            if days > 3 {
+                return dateString
+            }
 
+            Formatter.numberFormatter.numberStyle = .spellOut
+            let spelltOut = Formatter.numberFormatter.string(from: NSNumber(value: days))!
+            return "In \(spelltOut) days"
         }
-        return ""
     }
 
     private func getDateFormat(for date: Date) -> String {
-        if date.isYesterday || date.isToday {
+        if date.isYesterday || date.isToday || date.isTomorrow {
             return "HH:mm"
         }
         return "dd.MM.yyyy"

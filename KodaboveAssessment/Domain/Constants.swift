@@ -31,4 +31,9 @@ struct Formatter {
         df.calendar = Calendar(identifier: .gregorian)
         return df
     }()
+
+    static var numberFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        return nf
+    }()
 }

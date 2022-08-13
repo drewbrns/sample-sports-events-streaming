@@ -103,9 +103,33 @@ class ItemViewModelTests: XCTestCase {
         XCTAssertEqual(makeSut(item: items[2]).dateForDisplay, "11.08.2022")
     }
 
+    func test_dateIsFormattedCorrectForDisplay_schedule() {
+        XCTAssertEqual(
+            makeSut(
+                item: items[0],
+                itemType: .schedule
+            ).dateForDisplay,
+            "Today, 11:30"
+        )
+        XCTAssertEqual(
+            makeSut(
+                item: items[3],
+                itemType: .schedule
+            ).dateForDisplay,
+            "Tomorrow, 10:30"
+        )
+        XCTAssertEqual(
+            makeSut(
+                item: items[4],
+                itemType: .schedule
+            ).dateForDisplay,
+            "In three days"
+        )
+    }
+
     // MARK: Helpers
-    func makeSut(item: Item) -> ItemViewModel {
-        return ItemViewModel(item: item)
+    func makeSut(item: Item, itemType: ItemType = .event) -> ItemViewModel {
+        return ItemViewModel(item: item, itemType: itemType)
     }
 
 }

@@ -36,6 +36,10 @@ extension Date {
         calendar.isDateInTomorrow(self)
     }
 
+    func daysFrom(date: Date) -> Int {
+        return calendar.daysBetween(date, and: self)
+    }
+
     func daysTo(date: Date) -> Int {
         return calendar.daysBetween(self, and: date)
     }
