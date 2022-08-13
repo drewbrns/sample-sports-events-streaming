@@ -32,6 +32,7 @@ final class RemoteItemLoader: ItemLoader {
             return element.data
         }
         .decode(type: [Item].self, decoder: dateAwareJsonDecoder)
+        .receive(on: DispatchQueue.main)
         .sink(receiveCompletion: {
             print("Received completion: \($0).")
         },

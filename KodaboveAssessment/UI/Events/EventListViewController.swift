@@ -55,9 +55,7 @@ extension EventListViewController {
 
     private func bindFetchCompletePublisher() {
         vm?.$onFetchComplete.sink { [weak self] _ in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
+            self?.tableView.reloadData()
         }.store(in: &cancellables)
     }
 }
