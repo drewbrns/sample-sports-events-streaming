@@ -66,7 +66,7 @@
                 <outlet property="itemSubTitleLabel" destination="XRb-cL-OC7" id="ZTt-q6-fbI"/>
                 <outlet property="itemTitleLabel" destination="JsA-qa-dSQ" id="fWT-Ua-IAu"/>
             </connections>
-            <point key="canvasLocation" x="2" y="10"/>
+            <point key="canvasLocation" x="1.5384615384615383" y="9.9526066350710902"/>
         </tableViewCell>
     </objects>
 </document>

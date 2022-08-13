@@ -23,13 +23,13 @@ struct ItemViewModel {
         item.title
     }
     var subTitle: String {
-        item.subTitle
+        item.subtitle
     }
     var imageUrl: URL {
-        item.imageURL
+        item.imageUrl
     }
     var videoUrl: URL? {
-        item.videoURL
+        item.videoUrl
     }
     var date: Date {
         return item.date

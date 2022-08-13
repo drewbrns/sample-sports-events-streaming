@@ -43,46 +43,46 @@ class ItemViewModelTests: XCTestCase {
         Item(
             id: "1",
             title: "Arsenal vs Ajax",
-            subTitle: "Champions League",
+            subtitle: "Champions League",
             date: getTodayAt1130(),
-            imageURL: URL(string: "https://via.placeholder.com/150")!,
-            videoURL: URL(string: "https://via.placeholder.com/150")
+            imageUrl: URL(string: "https://via.placeholder.com/150")!,
+            videoUrl: URL(string: "https://via.placeholder.com/150")
         ),
         Item(
             id: "2",
             title: "Chelsea vs Manchester Utd",
-            subTitle: "EPL",
+            subtitle: "EPL",
             date: getYesterdayAt1830(),
-            imageURL: URL(string: "https://via.placeholder.com/150")!
+            imageUrl: URL(string: "https://via.placeholder.com/150")!
         ),
         Item(
             id: "3",
             title: "Liverpool vs Manchester City",
-            subTitle: "Community Sheild",
+            subtitle: "Community Sheild",
             date: Date(timeIntervalSince1970: 1660220463),
-            imageURL: URL(string: "https://via.placeholder.com/150")!
+            imageUrl: URL(string: "https://via.placeholder.com/150")!
         ),
         Item(
             id: "4",
             title: "Arsenal vs Ajax",
-            subTitle: "Champions League",
+            subtitle: "Champions League",
             date: getTomorrowAt1030(),
-            imageURL: URL(string: "https://via.placeholder.com/150")!,
-            videoURL: URL(string: "https://via.placeholder.com/150")
+            imageUrl: URL(string: "https://via.placeholder.com/150")!,
+            videoUrl: URL(string: "https://via.placeholder.com/150")
         ),
         Item(
             id: "5",
             title: "Chelsea vs Manchester Utd",
-            subTitle: "EPL",
+            subtitle: "EPL",
             date: getIn3daysTime(),
-            imageURL: URL(string: "https://via.placeholder.com/150")!
+            imageUrl: URL(string: "https://via.placeholder.com/150")!
         ),
         Item(
             id: "6",
             title: "Liverpool vs Manchester City",
-            subTitle: "Community Sheild",
+            subtitle: "Community Sheild",
             date: getIn5daysTime(),
-            imageURL: URL(string: "https://via.placeholder.com/150")!
+            imageUrl: URL(string: "https://via.placeholder.com/150")!
         )
     ]
 
@@ -91,9 +91,9 @@ class ItemViewModelTests: XCTestCase {
         let sut = makeSut(item: item)
         XCTAssertEqual(sut.id, item.id)
         XCTAssertEqual(sut.title, item.title)
-        XCTAssertEqual(sut.subTitle, item.subTitle)
-        XCTAssertEqual(sut.imageUrl, item.imageURL)
-        XCTAssertEqual(try XCTUnwrap(sut.videoUrl), item.videoURL)
+        XCTAssertEqual(sut.subTitle, item.subtitle)
+        XCTAssertEqual(sut.imageUrl, item.imageUrl)
+        XCTAssertEqual(try XCTUnwrap(sut.videoUrl), item.videoUrl)
         XCTAssertEqual(sut.date.timeIntervalSinceReferenceDate, item.date.timeIntervalSinceReferenceDate, accuracy: 0.1)
     }
 

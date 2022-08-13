@@ -130,10 +130,10 @@
 			isa = PBXGroup;
 			children = (
 				3A6AF61C28A44B990072F759 /* KodaboveAssessmentTests-Bridging-Header.h */,
+				3A6C94C828A6FD1000F18AA3 /* TestHelpers.swift */,
 				3A6AF61D28A44B990072F759 /* ItemListViewModelTests.swift */,
 				3A6AF62928A47FC60072F759 /* IndexPathAdditionsTests.swift */,
 				3AFB4A0A28A5C7340092B784 /* EventListControllerTests.swift */,
-				3A6C94C828A6FD1000F18AA3 /* TestHelpers.swift */,
 				3A6C94CC28A7B0DB00F18AA3 /* ItemViewModelTests.swift */,
 			);
 			path = KodaboveAssessmentTests;

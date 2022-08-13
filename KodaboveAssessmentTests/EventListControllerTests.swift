@@ -14,16 +14,16 @@ class EventListControllerTests: XCTestCase {
         Item(
             id: "1",
             title: "Arsenal vs Ajax",
-            subTitle: "Champions League",
+            subtitle: "Champions League",
             date: .distantPast,
-            imageURL: URL(string: "https://via.placeholder.com/150")!
+            imageUrl: URL(string: "https://via.placeholder.com/150")!
         ),
         Item(
             id: "2",
             title: "Chelsea vs Manchester Utd",
-            subTitle: "EPL",
+            subtitle: "EPL",
             date: .distantFuture,
-            imageURL: URL(string: "https://via.placeholder.com/150")!
+            imageUrl: URL(string: "https://via.placeholder.com/150")!
         )
     ]
 
