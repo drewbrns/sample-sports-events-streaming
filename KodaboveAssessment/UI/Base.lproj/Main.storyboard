@@ -84,7 +84,7 @@
         <!--Schedule-->
         <scene sceneID="QIZ-jU-9N0">
             <objects>
-                <viewController id="t3q-GP-EME" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScheduleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t3q-GP-EME" customClass="ScheduleViewController" customModule="KodaboveAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="39m-5Z-nl5">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,6 +92,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lB3-ej-tOf">
                                 <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="t3q-GP-EME" id="omm-EO-x3Y"/>
+                                    <outlet property="delegate" destination="t3q-GP-EME" id="dNF-uQ-gb0"/>
+                                    <outlet property="prefetchDataSource" destination="t3q-GP-EME" id="s5N-Kc-teE"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m12-3D-2sd"/>
@@ -104,6 +109,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Schedule" image="scheduleIcon" id="pD8-c3-Wcc"/>
+                    <connections>
+                        <outlet property="tableView" destination="lB3-ej-tOf" id="FDM-Sy-ktX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7t-QB-Kh4" sceneMemberID="firstResponder"/>
             </objects>
