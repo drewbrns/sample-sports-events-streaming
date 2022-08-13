@@ -14,7 +14,7 @@ final class RemoteItemLoader: ItemLoader {
 
     private var resource: String
     private var url: URL {
-        return URL(string: "\(Server.baseUrl)\(self.resource)")!
+        return URL(string: "\(Server.baseUrl)/\(self.resource)")!
     }
 
     init(resource: Server.endpoints) {
