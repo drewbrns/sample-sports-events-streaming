@@ -60,6 +60,24 @@ class ScheduleViewControllerTests: XCTestCase {
         sut.vc.vm?.stopLoadingData()
     }
 
+    func test_init_cell() {
+        let exp = expectation(description: "Fetch Data")
+        exp.expectedFulfillmentCount = 1
+
+        let sut = makeSut(items: items, expectation: exp)
+        sut.vc.viewDidLoad()
+
+        wait(for: [exp], timeout: 5)
+
+        let cell = sut.vc.tableView.cell(at: 0)
+        XCTAssertNotNil(cell?.itemTitleLabel)
+        XCTAssertNotNil(cell?.itemSubTitleLabel)
+        XCTAssertNotNil(cell?.itemDateLabel)
+        XCTAssertNotNil(cell?.itemImageView)
+
+        sut.vc.vm?.stopLoadingData()
+    }
+
     // MARK: Helpers
 
     func makeSut(
