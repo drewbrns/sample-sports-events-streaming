@@ -74,7 +74,9 @@ extension ScheduleViewController: UITableViewDataSource {
             fatalError("Unexpected error")
         }
 
-        cell.configure(with: vm?.viewModel(at: indexPath.row))
+        cell.configure(
+            with: vm?.viewModel(at: indexPath.row)
+        )
         return cell
     }
 

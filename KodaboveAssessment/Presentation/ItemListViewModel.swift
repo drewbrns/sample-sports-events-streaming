@@ -23,6 +23,7 @@ final class ItemListViewModel: ObservableObject, ItemList {
     @Published private(set) var onFetchComplete: [IndexPath]?
     @Published private(set) var onError: Error?
     private var timerCancellable: AnyCancellable?
+    private var itemType: ItemType
 
     var isEmpty: Bool { items.isEmpty }
     private(set) var totalCount: Int = 0
@@ -34,12 +35,16 @@ final class ItemListViewModel: ObservableObject, ItemList {
     private var items = [Item]()
     private var dataLoader: ItemLoader
 
-    init(dataLoader: ItemLoader) {
+    init(dataLoader: ItemLoader, itemType: ItemType = .event) {
         self.dataLoader = dataLoader
+        self.itemType = itemType
     }
 
     func viewModel(at index: Int) -> ItemViewModel {
-        return ItemViewModel(item: items[index])
+        return ItemViewModel(
+            item: items[index],
+            itemType: itemType
+        )
     }
 
     func loadData(limit: Int = 10) {
