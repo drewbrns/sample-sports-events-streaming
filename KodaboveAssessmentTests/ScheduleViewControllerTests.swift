@@ -78,6 +78,21 @@ class ScheduleViewControllerTests: XCTestCase {
         sut.vc.vm?.stopLoadingData()
     }
 
+    func test_cellForRowAtIndexPath_renders_cell_correctly() throws {
+        let exp = expectation(description: "Fetch Data")
+        exp.expectedFulfillmentCount = 1
+
+        let sut = makeSut(items: items, expectation: exp)
+        sut.vc.viewDidLoad()
+
+        wait(for: [exp], timeout: 5)
+
+        XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.title(at: 0)), "Arsenal vs Ajax")
+        XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.title(at: 1)), "Chelsea vs Manchester Utd")
+        XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.subTitle(at: 0)), "Champions League")
+        XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.subTitle(at: 1)), "EPL")
+    }
+
     // MARK: Helpers
 
     func makeSut(
