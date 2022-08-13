@@ -61,7 +61,7 @@ final class ItemListViewModel: ObservableObject, ItemList {
         }
     }
 
-    func loadData(limit: Int, every: Int) {
+    func loadData(limit: Int = 10, every: Int) {
 
     }
 

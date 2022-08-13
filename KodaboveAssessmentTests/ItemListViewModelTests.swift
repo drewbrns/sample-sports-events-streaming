@@ -35,19 +35,19 @@ class ItemListViewModelTests: XCTestCase {
     ]
 
     func test_viewModel_contains_no_items() {
-        let sut = makeSut()
+        let sut = makeSut().vm
         XCTAssertTrue(sut.isEmpty)
     }
 
     func test_viewModel_contains_items_after_fetching_data() {
-        let sut = makeSut(items: items)
+        let sut = makeSut(items: items).vm
         sut.loadData()
 
         XCTAssertFalse(sut.isEmpty)
     }
 
     func test_viewModel_at_index_returns_data_correctly() {
-        let sut = makeSut(items: items)
+        let sut = makeSut(items: items).vm
         sut.loadData()
 
         XCTAssertEqual(
@@ -57,7 +57,7 @@ class ItemListViewModelTests: XCTestCase {
     }
 
     func test_loaded_items_are_sorted_by_date_in_ascending_order() {
-        let sut = makeSut(items: items)
+        let sut = makeSut(items: items).vm
         sut.loadData()
 
         let date1 = sut.viewModel(at: 0).date
@@ -68,18 +68,20 @@ class ItemListViewModelTests: XCTestCase {
         XCTAssertTrue(date2 < date3)
         XCTAssertTrue(date1 < date3)
     }
-
+    
     // MARK: - Helpers
-    func makeSut(items: [Item] = []) -> ItemListViewModel {
+    func makeSut(items: [Item] = []) -> (vm: ItemListViewModel, loader: ItemLoaderStub) {
         let itemLoader = ItemLoaderStub()
         itemLoader.items = items
-        return ItemListViewModel(dataLoader: itemLoader)
+        return (ItemListViewModel(dataLoader: itemLoader), itemLoader)
     }
 
     final class ItemLoaderStub: ItemLoader {
+        private var didCall = 0
         var items: [Item] = []
 
         func fetch(page: Int, limit: Int, completion: @escaping (Result<[Item], Error>) -> Void) {
+            didCall += 1
             completion(.success(self.items))
         }
     }
