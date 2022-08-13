@@ -14,7 +14,7 @@ final class RemoteItemLoader: ItemLoader {
 
     private var resource: String
     private var url: URL {
-        return URL(string: "\(Server.baseUrl)\(self.resource)")!
+        return URL(string: "\(Server.baseUrl)/\(self.resource)")!
     }
 
     init(resource: Server.endpoints) {
@@ -32,6 +32,7 @@ final class RemoteItemLoader: ItemLoader {
             return element.data
         }
         .decode(type: [Item].self, decoder: dateAwareJsonDecoder)
+        .receive(on: DispatchQueue.main)
         .sink(receiveCompletion: {
             print("Received completion: \($0).")
         },

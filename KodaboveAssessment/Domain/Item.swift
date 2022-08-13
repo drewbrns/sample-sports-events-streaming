@@ -10,10 +10,10 @@ import Foundation
 struct Item: Identifiable, Codable {
     var id: String
     var title: String
-    var subTitle: String
+    var subtitle: String
     var date: Date
-    var imageURL: URL
-    var videoURL: URL?
+    var imageUrl: URL
+    var videoUrl: URL?
 }
 
 extension Item: Equatable {

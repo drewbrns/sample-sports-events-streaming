@@ -25,6 +25,13 @@
 		3A6AF62C28A49DD00072F759 /* RemoteItemLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF62B28A49DD00072F759 /* RemoteItemLoader.swift */; };
 		3A6AF62E28A49E370072F759 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF62D28A49E370072F759 /* Constants.swift */; };
 		3A6AF63028A4A1DC0072F759 /* DateFormatter+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF62F28A4A1DC0072F759 /* DateFormatter+Additions.swift */; };
+		3A6C94C928A6FD1000F18AA3 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94C828A6FD1000F18AA3 /* TestHelpers.swift */; };
+		3A6C94CB28A6FFA900F18AA3 /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94CA28A6FFA900F18AA3 /* Date+Additions.swift */; };
+		3A6C94CD28A7B0DB00F18AA3 /* ItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94CC28A7B0DB00F18AA3 /* ItemViewModelTests.swift */; };
+		3A6C94CF28A805D800F18AA3 /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94CE28A805D800F18AA3 /* AppImages.swift */; };
+		3AFB4A0928A5C7230092B784 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0828A5C7230092B784 /* EventListViewController.swift */; };
+		3AFB4A0B28A5C7340092B784 /* EventListControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0A28A5C7340092B784 /* EventListControllerTests.swift */; };
+		3AFB4A0D28A5C8730092B784 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0C28A5C8730092B784 /* AppStoryboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +66,13 @@
 		3A6AF62B28A49DD00072F759 /* RemoteItemLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteItemLoader.swift; sourceTree = "<group>"; };
 		3A6AF62D28A49E370072F759 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3A6AF62F28A4A1DC0072F759 /* DateFormatter+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Additions.swift"; sourceTree = "<group>"; };
+		3A6C94C828A6FD1000F18AA3 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		3A6C94CA28A6FFA900F18AA3 /* Date+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
+		3A6C94CC28A7B0DB00F18AA3 /* ItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModelTests.swift; sourceTree = "<group>"; };
+		3A6C94CE28A805D800F18AA3 /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
+		3AFB4A0828A5C7230092B784 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
+		3AFB4A0A28A5C7340092B784 /* EventListControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListControllerTests.swift; sourceTree = "<group>"; };
+		3AFB4A0C28A5C8730092B784 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +131,12 @@
 		3A6AF5F128A250080072F759 /* KodaboveAssessmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				3A6AF61C28A44B990072F759 /* KodaboveAssessmentTests-Bridging-Header.h */,
+				3A6C94C828A6FD1000F18AA3 /* TestHelpers.swift */,
 				3A6AF61D28A44B990072F759 /* ItemListViewModelTests.swift */,
 				3A6AF62928A47FC60072F759 /* IndexPathAdditionsTests.swift */,
-				3A6AF61C28A44B990072F759 /* KodaboveAssessmentTests-Bridging-Header.h */,
+				3AFB4A0A28A5C7340092B784 /* EventListControllerTests.swift */,
+				3A6C94CC28A7B0DB00F18AA3 /* ItemViewModelTests.swift */,
 			);
 			path = KodaboveAssessmentTests;
 			sourceTree = "<group>";
@@ -129,6 +146,9 @@
 			children = (
 				3A6AF62728A47F990072F759 /* IndexPath+Additions.swift */,
 				3A6AF62F28A4A1DC0072F759 /* DateFormatter+Additions.swift */,
+				3AFB4A0C28A5C8730092B784 /* AppStoryboard.swift */,
+				3A6C94CA28A6FFA900F18AA3 /* Date+Additions.swift */,
+				3A6C94CE28A805D800F18AA3 /* AppImages.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -176,6 +196,7 @@
 		3A6AF61428A3A9FF0072F759 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				3AFB4A0828A5C7230092B784 /* EventListViewController.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -335,8 +356,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A6AF62228A44DC80072F759 /* Item.swift in Sources */,
+				3AFB4A0928A5C7230092B784 /* EventListViewController.swift in Sources */,
 				3A6AF5DC28A250070072F759 /* AppDelegate.swift in Sources */,
 				3A6AF62028A44CF70072F759 /* ItemListViewModel.swift in Sources */,
+				3AFB4A0D28A5C8730092B784 /* AppStoryboard.swift in Sources */,
+				3A6C94CB28A6FFA900F18AA3 /* Date+Additions.swift in Sources */,
 				3A6AF62828A47F990072F759 /* IndexPath+Additions.swift in Sources */,
 				3A6AF62628A459A50072F759 /* ItemLoader.swift in Sources */,
 				3A6AF62E28A49E370072F759 /* Constants.swift in Sources */,
@@ -345,6 +369,7 @@
 				3A6AF5DE28A250070072F759 /* SceneDelegate.swift in Sources */,
 				3A6AF61B28A3AAEB0072F759 /* ListItemCell.swift in Sources */,
 				3A6AF62428A453D80072F759 /* ItemViewModel.swift in Sources */,
+				3A6C94CF28A805D800F18AA3 /* AppImages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +379,9 @@
 			files = (
 				3A6AF61E28A44B990072F759 /* ItemListViewModelTests.swift in Sources */,
 				3A6AF62A28A47FC60072F759 /* IndexPathAdditionsTests.swift in Sources */,
+				3A6C94CD28A7B0DB00F18AA3 /* ItemViewModelTests.swift in Sources */,
+				3AFB4A0B28A5C7340092B784 /* EventListControllerTests.swift in Sources */,
+				3A6C94C928A6FD1000F18AA3 /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

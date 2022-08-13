@@ -14,23 +14,23 @@ class ItemListViewModelTests: XCTestCase {
         Item(
             id: "1",
             title: "Chelsea vs Manchester Utd",
-            subTitle: "EPL",
+            subtitle: "EPL",
             date: .distantFuture,
-            imageURL: URL(string: "https://via.placeholder.com/150")!
+            imageUrl: URL(string: "https://via.placeholder.com/150")!
         ),
         Item(
             id: "2",
             title: "Manchester Utd vs Juventus",
-            subTitle: "Champions League",
+            subtitle: "Champions League",
             date: Date(),
-            imageURL: URL(string: "https://via.placeholder.com/150")!
+            imageUrl: URL(string: "https://via.placeholder.com/150")!
         ),
         Item(
             id: "3",
             title: "Arsenal vs Ajax",
-            subTitle: "Champions League",
+            subtitle: "Champions League",
             date: .distantPast,
-            imageURL: URL(string: "https://via.placeholder.com/150")!
+            imageUrl: URL(string: "https://via.placeholder.com/150")!
         )
     ]
 
