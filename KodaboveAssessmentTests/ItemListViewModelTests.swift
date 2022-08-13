@@ -35,19 +35,19 @@ class ItemListViewModelTests: XCTestCase {
     ]
 
     func test_viewModel_contains_no_items() {
-        let sut = makeSut()
+        let sut = makeSut().vm
         XCTAssertTrue(sut.isEmpty)
     }
 
     func test_viewModel_contains_items_after_fetching_data() {
-        let sut = makeSut(items: items)
+        let sut = makeSut(items: items).vm
         sut.loadData()
 
         XCTAssertFalse(sut.isEmpty)
     }
 
     func test_viewModel_at_index_returns_data_correctly() {
-        let sut = makeSut(items: items)
+        let sut = makeSut(items: items).vm
         sut.loadData()
 
         XCTAssertEqual(
@@ -57,7 +57,7 @@ class ItemListViewModelTests: XCTestCase {
     }
 
     func test_loaded_items_are_sorted_by_date_in_ascending_order() {
-        let sut = makeSut(items: items)
+        let sut = makeSut(items: items).vm
         sut.loadData()
 
         let date1 = sut.viewModel(at: 0).date
@@ -69,19 +69,30 @@ class ItemListViewModelTests: XCTestCase {
         XCTAssertTrue(date1 < date3)
     }
 
-    // MARK: - Helpers
-    func makeSut(items: [Item] = []) -> ItemListViewModel {
-        let itemLoader = ItemLoaderStub()
-        itemLoader.items = items
-        return ItemListViewModel(dataLoader: itemLoader)
+    func test_fetching_items_periodically() {
+        let exp = expectation(description: "Fetch Data")
+        exp.expectedFulfillmentCount = 5
+
+        let sut = makeSut(items: items, expectation: exp)
+        let loader = sut.loader
+
+        XCTAssertEqual(loader.didCall, 0)
+        sut.vm.loadData(every: 1)
+
+        wait(for: [exp], timeout: 5)
+        XCTAssertEqual(loader.didCall, 5)
+        sut.vm.stopLoadingData()
     }
 
-    final class ItemLoaderStub: ItemLoader {
-        var items: [Item] = []
-
-        func fetch(page: Int, limit: Int, completion: @escaping (Result<[Item], Error>) -> Void) {
-            completion(.success(self.items))
-        }
+    // MARK: - Helpers
+    func makeSut(
+        items: [Item] = [],
+        expectation: XCTestExpectation? = nil
+    ) -> (vm: ItemListViewModel, loader: DataLoaderSpy) {
+        let itemLoader = DataLoaderSpy(items: items)
+        itemLoader.expectation = expectation
+        let viewModel = ItemListViewModel(dataLoader: itemLoader)
+        return (viewModel, itemLoader)
     }
 
 }

@@ -12,14 +12,18 @@ protocol ItemList {
     var isEmpty: Bool { get }
     var totalCount: Int { get }
     var currentCount: Int { get }
+    func viewModel(at index: Int) -> ItemViewModel
 
     func loadData(limit: Int)
-    func viewModel(at index: Int) -> ItemViewModel
+    func loadData(limit: Int, every: TimeInterval)
+    func stopLoadingData()
 }
 
 final class ItemListViewModel: ObservableObject, ItemList {
     @Published private(set) var onFetchComplete: [IndexPath]?
     @Published private(set) var onError: Error?
+    private var timerCancellable: AnyCancellable?
+    private var itemType: ItemType
 
     var isEmpty: Bool { items.isEmpty }
     private(set) var totalCount: Int = 0
@@ -31,8 +35,16 @@ final class ItemListViewModel: ObservableObject, ItemList {
     private var items = [Item]()
     private var dataLoader: ItemLoader
 
-    init(dataLoader: ItemLoader) {
+    init(dataLoader: ItemLoader, itemType: ItemType = .event) {
         self.dataLoader = dataLoader
+        self.itemType = itemType
+    }
+
+    func viewModel(at index: Int) -> ItemViewModel {
+        return ItemViewModel(
+            item: items[index],
+            itemType: itemType
+        )
     }
 
     func loadData(limit: Int = 10) {
@@ -60,8 +72,15 @@ final class ItemListViewModel: ObservableObject, ItemList {
         }
     }
 
-    func viewModel(at index: Int) -> ItemViewModel {
-        return ItemViewModel(item: items[index])
+    func loadData(limit: Int = 10, every interval: TimeInterval) {
+        let timer = Timer.publish(every: interval, on: .main, in: .common)
+        timerCancellable = timer.autoconnect().sink { _ in
+            self.loadData(limit: limit)
+        }
+    }
+
+    func stopLoadingData() {
+        timerCancellable?.cancel()
     }
 
     private func sort(items: [Item]) -> [Item] {

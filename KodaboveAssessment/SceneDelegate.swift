@@ -34,6 +34,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             vc.vm = ItemListViewModel(dataLoader: dataLoader)
         }
 
+        if let vc = main.viewControllers?.last as? ScheduleViewController {
+            let dataLoader = RemoteItemLoader(resource: .schedule)
+            vc.vm = ItemListViewModel(dataLoader: dataLoader, itemType: .schedule)
+        }
+
         window.makeKeyAndVisible()
     }
 

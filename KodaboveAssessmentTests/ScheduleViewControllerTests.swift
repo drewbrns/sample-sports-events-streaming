@@ -1,14 +1,14 @@
 //
-//  EventListControllerTests.swift
+//  ScheduleViewControllerTests.swift
 //  KodaboveAssessmentTests
 //
-//  Created by Drew Barnes on 11/08/2022.
+//  Created by Drew Barnes on 13/08/2022.
 //
 
 import XCTest
 @testable import KodaboveAssessment
 
-class EventListControllerTests: XCTestCase {
+class ScheduleViewControllerTests: XCTestCase {
 
     let items = [
         Item(
@@ -34,11 +34,13 @@ class EventListControllerTests: XCTestCase {
         XCTAssertNotNil(sut.tableView.delegate)
         XCTAssertNotNil(sut.tableView.dataSource)
         XCTAssertNotNil(sut.tableView.prefetchDataSource)
-        XCTAssertNotNil(sut.vm)
     }
 
     func test_viewDidLoad_performs_loadData() {
-        let sut = makeSut(items: items)
+        let exp = expectation(description: "Fetch Data")
+        exp.expectedFulfillmentCount = 1
+
+        let sut = makeSut(items: items, expectation: exp)
 
         XCTAssertNotNil(sut.vc.vm)
         XCTAssertEqual(sut.dataLoader.didCall, 0)
@@ -46,49 +48,75 @@ class EventListControllerTests: XCTestCase {
 
         sut.vc.viewDidLoad()
 
+        wait(for: [exp], timeout: 1)
+
         XCTAssertEqual(sut.dataLoader.didCall, 1)
         XCTAssertFalse(sut.vc.vm!.isEmpty)
 
         XCTAssertEqual(sut.vc.tableView.numberOfSections, 1)
         XCTAssertEqual(sut.vc.tableView.numberOfRows(inSection: 0), 2)
+
+        sut.vc.vm?.stopLoadingData()
     }
 
     func test_init_cell() {
-        let sut = makeSut(items: items)
+        let exp = expectation(description: "Fetch Data")
+        exp.expectedFulfillmentCount = 1
+
+        let sut = makeSut(items: items, expectation: exp)
+
         sut.vc.viewDidLoad()
+
+        wait(for: [exp], timeout: 1)
 
         let cell = sut.vc.tableView.cell(at: 0)
         XCTAssertNotNil(cell?.itemTitleLabel)
         XCTAssertNotNil(cell?.itemSubTitleLabel)
         XCTAssertNotNil(cell?.itemDateLabel)
         XCTAssertNotNil(cell?.itemImageView)
+
+        sut.vc.vm?.stopLoadingData()
     }
 
-    func test_cellForRowAtIndexPath_renders_cell_correctly() throws {
-        let sut = makeSut(items: items)
+    func test_cellForRowAtIndexPath_renders_cell_correctly() {
+        let exp = expectation(description: "Fetch Data")
+        exp.expectedFulfillmentCount = 1
+
+        let sut = makeSut(items: items, expectation: exp)
         sut.vc.viewDidLoad()
+
+        wait(for: [exp], timeout: 1)
 
         XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.title(at: 0)), "Arsenal vs Ajax")
         XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.title(at: 1)), "Chelsea vs Manchester Utd")
         XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.subTitle(at: 0)), "Champions League")
         XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.subTitle(at: 1)), "EPL")
+
+        sut.vc.vm?.stopLoadingData()
     }
 
     // MARK: Helpers
 
-    func makeSut(items: [Item] = []) -> (vc: EventListViewController, dataLoader: DataLoaderSpy) {
+    func makeSut(
+        items: [Item] = [],
+        expectation: XCTestExpectation? = nil
+    ) -> (vc: ScheduleViewController, dataLoader: DataLoaderSpy) {
 
         let dataLoader = DataLoaderSpy(items: items)
+        dataLoader.expectation = expectation
+
         let vm = ItemListViewModel(dataLoader: dataLoader)
 
         let vc = AppStoryboard.main.viewController(
-            viewControllerClass: EventListViewController.self
+            viewControllerClass: ScheduleViewController.self
         )
         _ = vc.view
         vc.vm = vm
+        vc.fetchDataWaitPeriod = 1
 
         return (vc, dataLoader)
     }
+
 }
 
 private extension UITableView {
