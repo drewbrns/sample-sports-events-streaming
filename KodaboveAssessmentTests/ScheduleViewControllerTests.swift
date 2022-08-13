@@ -34,7 +34,6 @@ class ScheduleViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.tableView.delegate)
         XCTAssertNotNil(sut.tableView.dataSource)
         XCTAssertNotNil(sut.tableView.prefetchDataSource)
-        XCTAssertNotNil(sut.vm)
     }
 
     func test_viewDidLoad_performs_loadData() {
@@ -49,7 +48,7 @@ class ScheduleViewControllerTests: XCTestCase {
 
         sut.vc.viewDidLoad()
 
-        wait(for: [exp], timeout: 5)
+        wait(for: [exp], timeout: 1)
 
         XCTAssertEqual(sut.dataLoader.didCall, 1)
         XCTAssertFalse(sut.vc.vm!.isEmpty)
@@ -65,9 +64,10 @@ class ScheduleViewControllerTests: XCTestCase {
         exp.expectedFulfillmentCount = 1
 
         let sut = makeSut(items: items, expectation: exp)
+
         sut.vc.viewDidLoad()
 
-        wait(for: [exp], timeout: 5)
+        wait(for: [exp], timeout: 1)
 
         let cell = sut.vc.tableView.cell(at: 0)
         XCTAssertNotNil(cell?.itemTitleLabel)
@@ -78,19 +78,21 @@ class ScheduleViewControllerTests: XCTestCase {
         sut.vc.vm?.stopLoadingData()
     }
 
-    func test_cellForRowAtIndexPath_renders_cell_correctly() throws {
+    func test_cellForRowAtIndexPath_renders_cell_correctly() {
         let exp = expectation(description: "Fetch Data")
         exp.expectedFulfillmentCount = 1
 
         let sut = makeSut(items: items, expectation: exp)
         sut.vc.viewDidLoad()
 
-        wait(for: [exp], timeout: 5)
+        wait(for: [exp], timeout: 1)
 
         XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.title(at: 0)), "Arsenal vs Ajax")
         XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.title(at: 1)), "Chelsea vs Manchester Utd")
         XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.subTitle(at: 0)), "Champions League")
         XCTAssertEqual(try XCTUnwrap(sut.vc.tableView.subTitle(at: 1)), "EPL")
+
+        sut.vc.vm?.stopLoadingData()
     }
 
     // MARK: Helpers

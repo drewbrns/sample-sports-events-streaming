@@ -39,7 +39,7 @@ final class DataLoaderSpy: ItemLoader {
     private(set) var didCall = 0
     var expectation: XCTestExpectation?
     var items: [Item] = []
-    
+
     init(items: [Item]) {
         self.items = items
     }

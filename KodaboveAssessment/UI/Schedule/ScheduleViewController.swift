@@ -17,10 +17,12 @@ class ScheduleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Schedule"
 
         configureTableView()
         bindVmPublishers()
 
+        vm?.loadData(limit: PageSize.limit)
         vm?.loadData(limit: PageSize.limit, every: fetchDataWaitPeriod)
     }
 
@@ -74,9 +76,7 @@ extension ScheduleViewController: UITableViewDataSource {
             fatalError("Unexpected error")
         }
 
-        cell.configure(
-            with: vm?.viewModel(at: indexPath.row)
-        )
+        cell.configure(with: vm?.viewModel(at: indexPath.row))
         return cell
     }
 
