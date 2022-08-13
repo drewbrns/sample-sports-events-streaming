@@ -25,6 +25,8 @@
 		3A6AF62C28A49DD00072F759 /* RemoteItemLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF62B28A49DD00072F759 /* RemoteItemLoader.swift */; };
 		3A6AF62E28A49E370072F759 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF62D28A49E370072F759 /* Constants.swift */; };
 		3A6AF63028A4A1DC0072F759 /* DateFormatter+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF62F28A4A1DC0072F759 /* DateFormatter+Additions.swift */; };
+		3A6C94C928A6FD1000F18AA3 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94C828A6FD1000F18AA3 /* TestHelpers.swift */; };
+		3A6C94CB28A6FFA900F18AA3 /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94CA28A6FFA900F18AA3 /* Date+Additions.swift */; };
 		3AFB4A0928A5C7230092B784 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0828A5C7230092B784 /* EventListViewController.swift */; };
 		3AFB4A0B28A5C7340092B784 /* EventListControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0A28A5C7340092B784 /* EventListControllerTests.swift */; };
 		3AFB4A0D28A5C8730092B784 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0C28A5C8730092B784 /* AppStoryboard.swift */; };
@@ -62,6 +64,8 @@
 		3A6AF62B28A49DD00072F759 /* RemoteItemLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteItemLoader.swift; sourceTree = "<group>"; };
 		3A6AF62D28A49E370072F759 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3A6AF62F28A4A1DC0072F759 /* DateFormatter+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Additions.swift"; sourceTree = "<group>"; };
+		3A6C94C828A6FD1000F18AA3 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		3A6C94CA28A6FFA900F18AA3 /* Date+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
 		3AFB4A0828A5C7230092B784 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		3AFB4A0A28A5C7340092B784 /* EventListControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListControllerTests.swift; sourceTree = "<group>"; };
 		3AFB4A0C28A5C8730092B784 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				3A6AF62928A47FC60072F759 /* IndexPathAdditionsTests.swift */,
 				3A6AF61C28A44B990072F759 /* KodaboveAssessmentTests-Bridging-Header.h */,
 				3AFB4A0A28A5C7340092B784 /* EventListControllerTests.swift */,
+				3A6C94C828A6FD1000F18AA3 /* TestHelpers.swift */,
 			);
 			path = KodaboveAssessmentTests;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				3A6AF62728A47F990072F759 /* IndexPath+Additions.swift */,
 				3A6AF62F28A4A1DC0072F759 /* DateFormatter+Additions.swift */,
 				3AFB4A0C28A5C8730092B784 /* AppStoryboard.swift */,
+				3A6C94CA28A6FFA900F18AA3 /* Date+Additions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				3A6AF5DC28A250070072F759 /* AppDelegate.swift in Sources */,
 				3A6AF62028A44CF70072F759 /* ItemListViewModel.swift in Sources */,
 				3AFB4A0D28A5C8730092B784 /* AppStoryboard.swift in Sources */,
+				3A6C94CB28A6FFA900F18AA3 /* Date+Additions.swift in Sources */,
 				3A6AF62828A47F990072F759 /* IndexPath+Additions.swift in Sources */,
 				3A6AF62628A459A50072F759 /* ItemLoader.swift in Sources */,
 				3A6AF62E28A49E370072F759 /* Constants.swift in Sources */,
@@ -366,6 +373,7 @@
 				3A6AF61E28A44B990072F759 /* ItemListViewModelTests.swift in Sources */,
 				3A6AF62A28A47FC60072F759 /* IndexPathAdditionsTests.swift in Sources */,
 				3AFB4A0B28A5C7340092B784 /* EventListControllerTests.swift in Sources */,
+				3A6C94C928A6FD1000F18AA3 /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
