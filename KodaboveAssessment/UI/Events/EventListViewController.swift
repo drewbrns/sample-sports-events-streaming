@@ -16,15 +16,12 @@ class EventListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let remoteItemLoader = RemoteItemLoader(resource: .events)
-        vm = ItemListViewModel(dataLoader: remoteItemLoader)
+        title = "Events"
 
         configureTableView()
         bindFetchCompletePublisher()
 
         vm?.loadData(limit: PageSize.limit)
-
     }
 }
 

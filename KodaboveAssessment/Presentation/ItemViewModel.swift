@@ -22,7 +22,7 @@ struct ItemViewModel {
     var title: String {
         item.title
     }
-    var subTitle: String {
+    var subtitle: String {
         item.subtitle
     }
     var imageUrl: URL {

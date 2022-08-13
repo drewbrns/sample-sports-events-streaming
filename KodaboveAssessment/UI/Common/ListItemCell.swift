@@ -30,7 +30,8 @@ class ListItemCell: UITableViewCell {
     func configure(with vm: ItemViewModel?) {
         if let vm = vm {
             itemTitleLabel.text = vm.title
-            itemSubTitleLabel.text = vm.subTitle
+            itemSubTitleLabel.text = vm.subtitle
+            itemDateLabel.text = vm.dateForDisplay
         } else {
             itemTitleLabel.text = nil
             itemSubTitleLabel.text = nil

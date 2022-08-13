@@ -91,7 +91,7 @@ class ItemViewModelTests: XCTestCase {
         let sut = makeSut(item: item)
         XCTAssertEqual(sut.id, item.id)
         XCTAssertEqual(sut.title, item.title)
-        XCTAssertEqual(sut.subTitle, item.subtitle)
+        XCTAssertEqual(sut.subtitle, item.subtitle)
         XCTAssertEqual(sut.imageUrl, item.imageUrl)
         XCTAssertEqual(try XCTUnwrap(sut.videoUrl), item.videoUrl)
         XCTAssertEqual(sut.date.timeIntervalSinceReferenceDate, item.date.timeIntervalSinceReferenceDate, accuracy: 0.1)

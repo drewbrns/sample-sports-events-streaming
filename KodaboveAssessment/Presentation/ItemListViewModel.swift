@@ -54,7 +54,6 @@ final class ItemListViewModel: ObservableObject, ItemList {
                     rowEnd: newItems.count
                 )
                 self?.onFetchComplete = indexPathsToReload
-
             case .failure(let error):
                 self?.onError = error
             }
