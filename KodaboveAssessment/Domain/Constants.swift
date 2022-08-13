@@ -23,3 +23,12 @@ struct Server {
 struct PageSize {
     static var limit = 25
 }
+
+struct Formatter {
+    static var dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.locale = Locale(identifier: "en_US_POSIX")
+        df.calendar = Calendar(identifier: .gregorian)
+        return df
+    }()
+}

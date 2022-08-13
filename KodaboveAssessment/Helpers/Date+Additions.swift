@@ -20,12 +20,20 @@ extension Calendar {
 extension Date {
     private var calendar: Calendar { Calendar.current }
 
+    var isInPast: Bool {
+        self < Date()
+    }
+
     var isYesterday: Bool {
         calendar.isDateInYesterday(self)
     }
 
     var isToday: Bool {
         calendar.isDateInToday(self)
+    }
+
+    var isTomorrow: Bool {
+        calendar.isDateInTomorrow(self)
     }
 
     func daysTo(date: Date) -> Int {
