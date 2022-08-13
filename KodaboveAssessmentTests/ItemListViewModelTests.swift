@@ -68,20 +68,41 @@ class ItemListViewModelTests: XCTestCase {
         XCTAssertTrue(date2 < date3)
         XCTAssertTrue(date1 < date3)
     }
-    
+
+    func test_fetching_items_periodically() {
+        let exp = expectation(description: "Fetch Data")
+        exp.expectedFulfillmentCount = 5
+
+        let sut = makeSut(items: items, expectation: exp)
+        let loader = sut.loader
+
+        XCTAssertEqual(loader.didCall, 0)
+        sut.vm.loadData(every: 1)
+
+        wait(for: [exp], timeout: 5)
+        XCTAssertEqual(loader.didCall, 5)
+        sut.vm.stopLoadingData()
+    }
+
     // MARK: - Helpers
-    func makeSut(items: [Item] = []) -> (vm: ItemListViewModel, loader: ItemLoaderStub) {
+    func makeSut(
+        items: [Item] = [],
+        expectation: XCTestExpectation? = nil
+    ) -> (vm: ItemListViewModel, loader: ItemLoaderStub) {
         let itemLoader = ItemLoaderStub()
         itemLoader.items = items
+        itemLoader.expectation = expectation
         return (ItemListViewModel(dataLoader: itemLoader), itemLoader)
     }
 
     final class ItemLoaderStub: ItemLoader {
-        private var didCall = 0
+        private(set) var didCall = 0
+        var expectation: XCTestExpectation?
         var items: [Item] = []
 
         func fetch(page: Int, limit: Int, completion: @escaping (Result<[Item], Error>) -> Void) {
             didCall += 1
+            expectation?.fulfill()
             completion(.success(self.items))
         }
     }
