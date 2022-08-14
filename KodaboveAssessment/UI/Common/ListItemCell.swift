@@ -7,6 +7,7 @@
 
 import UIKit
 import Nuke
+import SkeletonView
 
 class ListItemCell: UITableViewCell {
 
@@ -20,6 +21,7 @@ class ListItemCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         roundCorners(to: 4)
+        makeViewsSkeletonable()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,16 +43,43 @@ class ListItemCell: UITableViewCell {
         }
     }
 
-    private func roundCorners(to radius: CGFloat) {
-        self.itemImageView.layer.cornerRadius = radius
-        self.itemImageView.clipsToBounds = true
-    }
-
     private func loadImage(with url: URL) {
         let options = ImageLoadingOptions(
             placeholder: UIImage(assetIdentifier: .placeholder),
             transition: .fadeIn(duration: 0.33)
         )
         Nuke.loadImage(with: url, options: options, into: self.itemImageView)
+    }
+}
+
+extension ListItemCell {
+    private func roundCorners(to radius: CGFloat) {
+        self.itemImageView.layer.cornerRadius = radius
+        self.itemImageView.clipsToBounds = true
+    }
+
+    private func makeViewsSkeletonable() {
+        itemImageView.isSkeletonable = true
+        itemTitleLabel.isSkeletonable = true
+        itemSubTitleLabel.isSkeletonable = true
+        itemDateLabel.isSkeletonable = true
+    }
+
+    func showLoadingAnimation() {
+        itemTitleLabel.numberOfLines = 2
+        itemSubTitleLabel.numberOfLines = 1
+        itemImageView.showAnimatedSkeleton()
+        itemTitleLabel.showAnimatedSkeleton()
+        itemSubTitleLabel.showAnimatedSkeleton()
+        itemDateLabel.showAnimatedSkeleton()
+    }
+
+    func hideLoadingAnimation() {
+        itemTitleLabel.numberOfLines = 2
+        itemSubTitleLabel.numberOfLines = 3
+        itemImageView.hideSkeleton()
+        itemTitleLabel.hideSkeleton()
+        itemSubTitleLabel.hideSkeleton()
+        itemDateLabel.hideSkeleton()
     }
 }
