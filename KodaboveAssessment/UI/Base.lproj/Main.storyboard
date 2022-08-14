@@ -39,28 +39,11 @@
                     <navigationItem key="navigationItem" id="CUA-5k-XSe"/>
                     <connections>
                         <outlet property="tableView" destination="8bD-xG-Lgr" id="7vV-dR-3bP"/>
-                        <segue destination="S74-HU-5Xv" kind="show" id="Cnq-Pv-57O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1867.6923076923076" y="-218.24644549763033"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="qlj-Uq-YTS">
-            <objects>
-                <viewController id="S74-HU-5Xv" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Gnv-iw-pVu">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="zDh-hZ-1bS"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="VcT-nh-wsp"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k4a-AW-ryD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2858" y="-218"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="o2L-3t-dae">
@@ -89,7 +72,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lB3-ej-tOf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lB3-ej-tOf">
                                 <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
