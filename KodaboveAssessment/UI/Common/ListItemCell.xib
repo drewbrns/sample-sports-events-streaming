@@ -56,7 +56,7 @@
                     <constraint firstItem="XRb-cL-OC7" firstAttribute="top" secondItem="JsA-qa-dSQ" secondAttribute="bottom" constant="4" id="fiJ-XK-G8W"/>
                     <constraint firstItem="JsA-qa-dSQ" firstAttribute="top" secondItem="psV-vs-gT3" secondAttribute="top" constant="12" id="kf5-Kh-Fae"/>
                     <constraint firstItem="JsA-qa-dSQ" firstAttribute="leading" secondItem="lH3-oI-MXQ" secondAttribute="trailing" constant="8" symbolic="YES" id="kgh-3v-UZD"/>
-                    <constraint firstItem="ruV-ek-cRS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XRb-cL-OC7" secondAttribute="bottom" constant="20" id="m2C-o5-Sho"/>
+                    <constraint firstItem="ruV-ek-cRS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XRb-cL-OC7" secondAttribute="bottom" constant="12" id="m2C-o5-Sho"/>
                     <constraint firstItem="ruV-ek-cRS" firstAttribute="leading" secondItem="XRb-cL-OC7" secondAttribute="leading" id="qaB-5P-UrP"/>
                 </constraints>
             </tableViewCellContentView>
