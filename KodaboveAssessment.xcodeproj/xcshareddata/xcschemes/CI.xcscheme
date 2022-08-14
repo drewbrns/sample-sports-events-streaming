@@ -26,7 +26,18 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3A6AF5D728A250070072F759"
+            BuildableName = "KodaboveAssessment.app"
+            BlueprintName = "KodaboveAssessment"
+            ReferencedContainer = "container:KodaboveAssessment.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,16 +46,6 @@
                BlueprintIdentifier = "3A6AF5ED28A250080072F759"
                BuildableName = "KodaboveAssessmentTests.xctest"
                BlueprintName = "KodaboveAssessmentTests"
-               ReferencedContainer = "container:KodaboveAssessment.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3A6AF5F728A250080072F759"
-               BuildableName = "KodaboveAssessmentUITests.xctest"
-               BlueprintName = "KodaboveAssessmentUITests"
                ReferencedContainer = "container:KodaboveAssessment.xcodeproj">
             </BuildableReference>
          </TestableReference>
