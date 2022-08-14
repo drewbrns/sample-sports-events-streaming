@@ -30,7 +30,7 @@ class ListItemCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(with vm: ItemViewModel?) {
+    func configure(with vm: EventViewModel?) {
         if let vm = vm {
             itemTitleLabel.text = vm.title
             itemSubTitleLabel.text = vm.subtitle

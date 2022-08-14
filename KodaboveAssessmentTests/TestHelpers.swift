@@ -38,13 +38,13 @@ final class TimeTraveler {
 final class DataLoaderSpy: ItemLoader {
     private(set) var didCall = 0
     var expectation: XCTestExpectation?
-    var items: [Item] = []
+    var items: [Event] = []
 
-    init(items: [Item]) {
+    init(items: [Event]) {
         self.items = items
     }
 
-    func fetch(page: Int, limit: Int, completion: @escaping (Result<[Item], Error>) -> Void) {
+    func fetch(page: Int, limit: Int, completion: @escaping (Result<[Event], Error>) -> Void) {
         didCall += 1
         expectation?.fulfill()
         completion(.success(self.items))

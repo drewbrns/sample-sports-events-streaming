@@ -21,7 +21,7 @@ final class RemoteItemLoader: ItemLoader {
         self.resource = resource.rawValue
     }
 
-    func fetch(page: Int, limit: Int, completion: @escaping (Result<[Item], Error>) -> Void) {
+    func fetch(page: Int, limit: Int, completion: @escaping (Result<[Event], Error>) -> Void) {
 
         URLSession.shared.dataTaskPublisher(for: url).tryMap { element -> Data in
             guard let httpResponse = element.response as? HTTPURLResponse,
@@ -31,7 +31,7 @@ final class RemoteItemLoader: ItemLoader {
             }
             return element.data
         }
-        .decode(type: [Item].self, decoder: dateAwareJsonDecoder)
+        .decode(type: [Event].self, decoder: dateAwareJsonDecoder)
         .receive(on: DispatchQueue.main)
         .sink(receiveCompletion: {
             print("Received completion: \($0).")

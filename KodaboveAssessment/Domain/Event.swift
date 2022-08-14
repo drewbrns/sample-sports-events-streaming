@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Item: Identifiable, Codable {
+struct Event: Identifiable, Codable {
     var id: String
     var title: String
     var subtitle: String
@@ -16,13 +16,13 @@ struct Item: Identifiable, Codable {
     var videoUrl: URL?
 }
 
-extension Item: Equatable {
-    static func == (lhs: Item, rhs: Item) -> Bool {
+extension Event: Equatable {
+    static func == (lhs: Event, rhs: Event) -> Bool {
         lhs.id == rhs.id
     }
 }
 
-extension Item: Hashable {
+extension Event: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }

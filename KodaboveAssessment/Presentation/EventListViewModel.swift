@@ -12,14 +12,15 @@ protocol ItemList {
     var isEmpty: Bool { get }
     var totalCount: Int { get }
     var currentCount: Int { get }
-    func viewModel(at index: Int) -> ItemViewModel
+    func viewModel(at index: Int) -> EventViewModel
 
     func loadData(limit: Int)
     func loadData(limit: Int, every: TimeInterval)
     func stopLoadingData()
 }
 
-final class ItemListViewModel: ObservableObject, ItemList {
+
+final class EventListViewModel: ObservableObject, ItemList {
     @Published private(set) var onFetchComplete: [IndexPath]?
     @Published private(set) var onError: Error?
     private var timerCancellable: AnyCancellable?
@@ -32,16 +33,18 @@ final class ItemListViewModel: ObservableObject, ItemList {
     private(set) var isLoadingData = false
     private var currentPage = 1
 
-    private var items = [Item]()
+    private var items = [Event]()
     private var dataLoader: ItemLoader
+
+    private var responsePage = 1 // used to simulate pagination
 
     init(dataLoader: ItemLoader, itemType: ItemType = .event) {
         self.dataLoader = dataLoader
         self.itemType = itemType
     }
 
-    func viewModel(at index: Int) -> ItemViewModel {
-        return ItemViewModel(
+    func viewModel(at index: Int) -> EventViewModel {
+        return EventViewModel(
             item: items[index],
             itemType: itemType
         )
@@ -56,23 +59,25 @@ final class ItemListViewModel: ObservableObject, ItemList {
 
             switch result {
             case .success(let items):
-                self?.totalCount = items.count // assuming that api told us the total number of items in the db
+                self?.currentPage += 1
+                self?.totalCount = 100 // Faking total number of items on server
+//                self?.totalCount = items.count
+                self?.items.append(contentsOf: items)
+                self?.items = self?.sort(items: self?.items) ?? [Event]()
 
-                let newItems = self?.sort(items: items) ?? [Item]()
-                // ensure uniqueness and append to list
-                self?.items = newItems // append to list
-
-                if (self?.currentPage ?? 1) > 1 {
+                if (self?.responsePage ?? 1) > 1 {
                     let indexPathsToReload = IndexPath.generateIndexPaths(
-                        rowStart: items.count,
-                        rowEnd: newItems.count
+                        rowStart: self?.items.count ?? 0,
+                        rowEnd: items.count
                     )
                     self?.onFetchComplete = indexPathsToReload
                 } else {
                     self?.onFetchComplete = .none
                 }
 
-                self?.currentPage += 1
+                // Faking response page on server
+                self?.responsePage += 1
+
             case .failure(let error):
                 self?.onError = error
             }
@@ -90,21 +95,12 @@ final class ItemListViewModel: ObservableObject, ItemList {
         timerCancellable?.cancel()
     }
 
-    private func sort(items: [Item]) -> [Item] {
+    private func sort(items: [Event]?) -> [Event] {
+        guard let items = items else { return [Event]() }
         return items.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
     }
 
     //TODO:
-    private func handlePullToRefresh() {
-        // don't increase page count (need to preserve this incase user wants to scroll down the list again)
-        // inset at the top of the list
-        // reload entire data?
-    }
-
-    private func handlePaginatedData() {
-        // increase page count
-        // append data to end of array
-        // calcuate new indexes to reload
-    }
+    private func handlePullToRefresh() {}
 
 }

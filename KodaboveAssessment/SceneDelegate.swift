@@ -31,12 +31,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let navCon = main.viewControllers?.first as? UINavigationController,
            let vc = navCon.viewControllers.first as? EventListViewController {
             let dataLoader = RemoteItemLoader(resource: .events)
-            vc.vm = ItemListViewModel(dataLoader: dataLoader)
+            vc.vm = EventListViewModel(dataLoader: dataLoader)
         }
 
         if let vc = main.viewControllers?.last as? ScheduleViewController {
             let dataLoader = RemoteItemLoader(resource: .schedule)
-            vc.vm = ItemListViewModel(dataLoader: dataLoader, itemType: .schedule)
+            vc.vm = EventListViewModel(dataLoader: dataLoader, itemType: .schedule)
         }
 
         window.makeKeyAndVisible()

@@ -12,7 +12,7 @@ class ScheduleViewController: UIViewController, AlertDisplayer {
 
     @IBOutlet weak var tableView: UITableView!
     private var cancellables: Set<AnyCancellable> = []
-    var vm: ItemListViewModel?
+    var vm: EventListViewModel?
     var fetchDataWaitPeriod: TimeInterval = 30
 
     override func viewDidLoad() {
@@ -120,11 +120,20 @@ extension ScheduleViewController {
         return indexPath.item >= vm.currentCount
     }
 
+    func visibleIndexPathsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
+      let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows ?? []
+      let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
+      return Array(indexPathsIntersection)
+    }
+
 }
 
 extension ScheduleViewController: UITableViewDataSourcePrefetching {
 
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: isLoadingCell) {
+            vm?.loadData(limit: PageSize.limit)
+        }
     }
 
 }

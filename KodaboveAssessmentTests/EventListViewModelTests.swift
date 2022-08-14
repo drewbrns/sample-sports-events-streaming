@@ -8,24 +8,24 @@
 import XCTest
 @testable import KodaboveAssessment
 
-class ItemListViewModelTests: XCTestCase {
+class EventListViewModelTests: XCTestCase {
 
     let items = [
-        Item(
+        Event(
             id: "1",
             title: "Chelsea vs Manchester Utd",
             subtitle: "EPL",
             date: .distantFuture,
             imageUrl: URL(string: "https://via.placeholder.com/150")!
         ),
-        Item(
+        Event(
             id: "2",
             title: "Manchester Utd vs Juventus",
             subtitle: "Champions League",
             date: Date(),
             imageUrl: URL(string: "https://via.placeholder.com/150")!
         ),
-        Item(
+        Event(
             id: "3",
             title: "Arsenal vs Ajax",
             subtitle: "Champions League",
@@ -52,7 +52,7 @@ class ItemListViewModelTests: XCTestCase {
 
         XCTAssertEqual(
             sut.viewModel(at: 1),
-            ItemViewModel(item: items[1])
+            EventViewModel(item: items[1])
         )
     }
 
@@ -86,12 +86,12 @@ class ItemListViewModelTests: XCTestCase {
 
     // MARK: - Helpers
     func makeSut(
-        items: [Item] = [],
+        items: [Event] = [],
         expectation: XCTestExpectation? = nil
-    ) -> (vm: ItemListViewModel, loader: DataLoaderSpy) {
+    ) -> (vm: EventListViewModel, loader: DataLoaderSpy) {
         let itemLoader = DataLoaderSpy(items: items)
         itemLoader.expectation = expectation
-        let viewModel = ItemListViewModel(dataLoader: itemLoader)
+        let viewModel = EventListViewModel(dataLoader: itemLoader)
         return (viewModel, itemLoader)
     }
 

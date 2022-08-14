@@ -13,7 +13,7 @@ class EventListViewController: UIViewController, AlertDisplayer {
 
     @IBOutlet weak var tableView: UITableView!
     private var cancellables: Set<AnyCancellable> = []
-    var vm: ItemListViewModel?
+    var vm: EventListViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
