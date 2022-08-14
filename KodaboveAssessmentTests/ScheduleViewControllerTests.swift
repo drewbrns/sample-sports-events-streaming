@@ -54,7 +54,7 @@ class ScheduleViewControllerTests: XCTestCase {
         XCTAssertFalse(sut.vc.vm!.isEmpty)
 
         XCTAssertEqual(sut.vc.tableView.numberOfSections, 1)
-        XCTAssertEqual(sut.vc.tableView.numberOfRows(inSection: 0), 2)
+        XCTAssertEqual(sut.vc.tableView.numberOfRows(inSection: 0), 100) // Fake pagination, assumes there are 100 items in the list
 
         sut.vc.vm?.stopLoadingData()
     }

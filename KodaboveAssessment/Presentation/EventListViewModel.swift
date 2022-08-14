@@ -19,7 +19,6 @@ protocol ItemList {
     func stopLoadingData()
 }
 
-private var responsePage = 1
 
 final class EventListViewModel: ObservableObject, ItemList {
     @Published private(set) var onFetchComplete: [IndexPath]?
@@ -36,6 +35,8 @@ final class EventListViewModel: ObservableObject, ItemList {
 
     private var items = [Event]()
     private var dataLoader: ItemLoader
+
+    private var responsePage = 1 // used to simulate pagination
 
     init(dataLoader: ItemLoader, itemType: ItemType = .event) {
         self.dataLoader = dataLoader
@@ -60,10 +61,11 @@ final class EventListViewModel: ObservableObject, ItemList {
             case .success(let items):
                 self?.currentPage += 1
                 self?.totalCount = 100 // Faking total number of items on server
+//                self?.totalCount = items.count
                 self?.items.append(contentsOf: items)
                 self?.items = self?.sort(items: self?.items) ?? [Event]()
 
-                if responsePage > 1 {
+                if (self?.responsePage ?? 1) > 1 {
                     let indexPathsToReload = IndexPath.generateIndexPaths(
                         rowStart: self?.items.count ?? 0,
                         rowEnd: items.count
@@ -74,7 +76,7 @@ final class EventListViewModel: ObservableObject, ItemList {
                 }
 
                 // Faking response page on server
-                responsePage += 1
+                self?.responsePage += 1
 
             case .failure(let error):
                 self?.onError = error

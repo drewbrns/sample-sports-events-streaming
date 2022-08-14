@@ -38,19 +38,23 @@ class EventListViewControllerTests: XCTestCase {
     }
 
     func test_viewDidLoad_performs_loadData() {
-        let sut = makeSut(items: items)
+        let exp = expectation(description: "Fetch Data")
+        exp.expectedFulfillmentCount = 1
+
+        let sut = makeSut(items: items, expectation: exp)
 
         XCTAssertNotNil(sut.vc.vm)
         XCTAssertEqual(sut.dataLoader.didCall, 0)
         XCTAssertTrue(sut.vc.vm!.isEmpty)
 
         sut.vc.viewDidLoad()
+        wait(for: [exp], timeout: 1)
 
         XCTAssertEqual(sut.dataLoader.didCall, 1)
         XCTAssertFalse(sut.vc.vm!.isEmpty)
 
         XCTAssertEqual(sut.vc.tableView.numberOfSections, 1)
-        XCTAssertEqual(sut.vc.tableView.numberOfRows(inSection: 0), 2)
+        XCTAssertEqual(sut.vc.tableView.numberOfRows(inSection: 0), 100) // Fake pagination, assumes there are 100 items in the list
     }
 
     func test_init_cell() {
@@ -76,9 +80,14 @@ class EventListViewControllerTests: XCTestCase {
 
     // MARK: Helpers
 
-    func makeSut(items: [Event] = []) -> (vc: EventListViewController, dataLoader: DataLoaderSpy) {
+    func makeSut(
+        items: [Event] = [],
+        expectation: XCTestExpectation? = nil
+    ) -> (vc: EventListViewController, dataLoader: DataLoaderSpy) {
 
         let dataLoader = DataLoaderSpy(items: items)
+        dataLoader.expectation = expectation
+
         let vm = EventListViewModel(dataLoader: dataLoader)
 
         let vc = AppStoryboard.main.viewController(
