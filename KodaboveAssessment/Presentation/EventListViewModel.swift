@@ -19,7 +19,6 @@ protocol ItemList {
     func stopLoadingData()
 }
 
-
 final class EventListViewModel: ObservableObject, ItemList {
     @Published private(set) var onFetchComplete: [IndexPath]?
     @Published private(set) var onError: Error?
@@ -100,7 +99,7 @@ final class EventListViewModel: ObservableObject, ItemList {
         return items.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
     }
 
-    //TODO:
+    // TODO:
     private func handlePullToRefresh() {}
 
 }
