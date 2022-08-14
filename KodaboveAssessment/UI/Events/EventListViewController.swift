@@ -9,7 +9,7 @@ import UIKit
 import AVKit
 import Combine
 
-class EventListViewController: UIViewController {
+class EventListViewController: UIViewController, AlertDisplayer {
 
     @IBOutlet weak var tableView: UITableView!
     private var cancellables: Set<AnyCancellable> = []
@@ -26,7 +26,7 @@ class EventListViewController: UIViewController {
     }
 }
 
-extension EventListViewController: AlertDisplayer {
+extension EventListViewController {
 
     private func configureTableView() {
         registerCell()
@@ -93,8 +93,8 @@ extension EventListViewController {
 extension EventListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let itemCount = vm?.totalCount else { return 5 }
-        let count = shouldShowLoadingAnimatation() ? 5 : itemCount
+        guard let itemCount = vm?.totalCount else { return 7 }
+        let count = shouldShowLoadingAnimatation() ? 7 : itemCount
         return count
     }
 
