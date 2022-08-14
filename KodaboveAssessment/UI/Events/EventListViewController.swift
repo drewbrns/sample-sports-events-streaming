@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 import Combine
 
 class EventListViewController: UIViewController {
@@ -87,5 +88,28 @@ extension EventListViewController: UITableViewDataSourcePrefetching {
 }
 
 extension EventListViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let itemViewModel = vm?.viewModel(at: indexPath.row) else { return }
+        setUpAndPresentPlayer(videoUrl: itemViewModel.videoUrl)
+    }
+
+}
+
+extension EventListViewController {
+
+    func setUpAndPresentPlayer(videoUrl: URL?) {
+        guard let videoUrl = videoUrl else {
+            return
+        }
+
+        let player = AVPlayer(url: videoUrl)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+
+        present(playerViewController, animated: true) {
+            playerViewController.player?.play()
+        }
+    }
 
 }

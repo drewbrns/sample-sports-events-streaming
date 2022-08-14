@@ -184,7 +184,6 @@
 				3A6AF61728A3AAAC0072F759 /* Common */,
 				3A6AF61428A3A9FF0072F759 /* Events */,
 				3A6AF61528A3AA080072F759 /* Schedule */,
-				3A6AF61628A3AA220072F759 /* Player */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -212,13 +211,6 @@
 				3A6C94D128A80CD800F18AA3 /* ScheduleViewController.swift */,
 			);
 			path = Schedule;
-			sourceTree = "<group>";
-		};
-		3A6AF61628A3AA220072F759 /* Player */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Player;
 			sourceTree = "<group>";
 		};
 		3A6AF61728A3AAAC0072F759 /* Common */ = {
