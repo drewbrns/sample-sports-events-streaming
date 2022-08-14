@@ -1,5 +1,5 @@
 //
-//  EventListControllerTests.swift
+//  EventListViewControllerTests.swift
 //  KodaboveAssessmentTests
 //
 //  Created by Drew Barnes on 11/08/2022.
@@ -8,17 +8,17 @@
 import XCTest
 @testable import KodaboveAssessment
 
-class EventListControllerTests: XCTestCase {
+class EventListViewControllerTests: XCTestCase {
 
     let items = [
-        Item(
+        Event(
             id: "1",
             title: "Arsenal vs Ajax",
             subtitle: "Champions League",
             date: .distantPast,
             imageUrl: URL(string: "https://via.placeholder.com/150")!
         ),
-        Item(
+        Event(
             id: "2",
             title: "Chelsea vs Manchester Utd",
             subtitle: "EPL",
@@ -76,10 +76,10 @@ class EventListControllerTests: XCTestCase {
 
     // MARK: Helpers
 
-    func makeSut(items: [Item] = []) -> (vc: EventListViewController, dataLoader: DataLoaderSpy) {
+    func makeSut(items: [Event] = []) -> (vc: EventListViewController, dataLoader: DataLoaderSpy) {
 
         let dataLoader = DataLoaderSpy(items: items)
-        let vm = ItemListViewModel(dataLoader: dataLoader)
+        let vm = EventListViewModel(dataLoader: dataLoader)
 
         let vc = AppStoryboard.main.viewController(
             viewControllerClass: EventListViewController.self

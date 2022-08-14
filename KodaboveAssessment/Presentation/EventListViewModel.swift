@@ -12,7 +12,7 @@ protocol ItemList {
     var isEmpty: Bool { get }
     var totalCount: Int { get }
     var currentCount: Int { get }
-    func viewModel(at index: Int) -> ItemViewModel
+    func viewModel(at index: Int) -> EventViewModel
 
     func loadData(limit: Int)
     func loadData(limit: Int, every: TimeInterval)
@@ -21,7 +21,7 @@ protocol ItemList {
 
 private var responsePage = 1
 
-final class ItemListViewModel: ObservableObject, ItemList {
+final class EventListViewModel: ObservableObject, ItemList {
     @Published private(set) var onFetchComplete: [IndexPath]?
     @Published private(set) var onError: Error?
     private var timerCancellable: AnyCancellable?
@@ -34,7 +34,7 @@ final class ItemListViewModel: ObservableObject, ItemList {
     private(set) var isLoadingData = false
     private var currentPage = 1
 
-    private var items = [Item]()
+    private var items = [Event]()
     private var dataLoader: ItemLoader
 
     init(dataLoader: ItemLoader, itemType: ItemType = .event) {
@@ -42,8 +42,8 @@ final class ItemListViewModel: ObservableObject, ItemList {
         self.itemType = itemType
     }
 
-    func viewModel(at index: Int) -> ItemViewModel {
-        return ItemViewModel(
+    func viewModel(at index: Int) -> EventViewModel {
+        return EventViewModel(
             item: items[index],
             itemType: itemType
         )
@@ -61,7 +61,7 @@ final class ItemListViewModel: ObservableObject, ItemList {
                 self?.currentPage += 1
                 self?.totalCount = 100 // Faking total number of items on server
                 self?.items.append(contentsOf: items)
-                self?.items = self?.sort(items: self?.items) ?? [Item]()
+                self?.items = self?.sort(items: self?.items) ?? [Event]()
 
                 if responsePage > 1 {
                     let indexPathsToReload = IndexPath.generateIndexPaths(
@@ -93,8 +93,8 @@ final class ItemListViewModel: ObservableObject, ItemList {
         timerCancellable?.cancel()
     }
 
-    private func sort(items: [Item]?) -> [Item] {
-        guard let items = items else { return [Item]() }
+    private func sort(items: [Event]?) -> [Event] {
+        guard let items = items else { return [Event]() }
         return items.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
     }
 

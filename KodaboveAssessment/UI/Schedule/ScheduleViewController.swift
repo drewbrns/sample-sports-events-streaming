@@ -12,7 +12,7 @@ class ScheduleViewController: UIViewController, AlertDisplayer {
 
     @IBOutlet weak var tableView: UITableView!
     private var cancellables: Set<AnyCancellable> = []
-    var vm: ItemListViewModel?
+    var vm: EventListViewModel?
     var fetchDataWaitPeriod: TimeInterval = 30
 
     override func viewDidLoad() {

@@ -11,6 +11,6 @@ protocol ItemLoader {
     func fetch(
         page: Int,
         limit: Int,
-        completion: @escaping (Result<[Item], Error>) -> Void
+        completion: @escaping (Result<[Event], Error>) -> Void
     )
 }

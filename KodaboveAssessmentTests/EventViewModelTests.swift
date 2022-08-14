@@ -1,5 +1,5 @@
 //
-//  ItemViewModelTests.swift
+//  EventViewModelTests.swift
 //  KodaboveAssessmentTests
 //
 //  Created by Drew Barnes on 13/08/2022.
@@ -37,10 +37,10 @@ func getIn5daysTime() -> Date {
     return timeTraveler.getSpecificDate(hour: 18, min: 30)
 }
 
-class ItemViewModelTests: XCTestCase {
+class EventViewModelTests: XCTestCase {
 
     let items = [
-        Item(
+        Event(
             id: "1",
             title: "Arsenal vs Ajax",
             subtitle: "Champions League",
@@ -48,21 +48,21 @@ class ItemViewModelTests: XCTestCase {
             imageUrl: URL(string: "https://via.placeholder.com/150")!,
             videoUrl: URL(string: "https://via.placeholder.com/150")
         ),
-        Item(
+        Event(
             id: "2",
             title: "Chelsea vs Manchester Utd",
             subtitle: "EPL",
             date: getYesterdayAt1830(),
             imageUrl: URL(string: "https://via.placeholder.com/150")!
         ),
-        Item(
+        Event(
             id: "3",
             title: "Liverpool vs Manchester City",
             subtitle: "Community Sheild",
             date: Date(timeIntervalSince1970: 1660220463),
             imageUrl: URL(string: "https://via.placeholder.com/150")!
         ),
-        Item(
+        Event(
             id: "4",
             title: "Arsenal vs Ajax",
             subtitle: "Champions League",
@@ -70,14 +70,14 @@ class ItemViewModelTests: XCTestCase {
             imageUrl: URL(string: "https://via.placeholder.com/150")!,
             videoUrl: URL(string: "https://via.placeholder.com/150")
         ),
-        Item(
+        Event(
             id: "5",
             title: "Chelsea vs Manchester Utd",
             subtitle: "EPL",
             date: getIn3daysTime(),
             imageUrl: URL(string: "https://via.placeholder.com/150")!
         ),
-        Item(
+        Event(
             id: "6",
             title: "Liverpool vs Manchester City",
             subtitle: "Community Sheild",
@@ -128,8 +128,8 @@ class ItemViewModelTests: XCTestCase {
     }
 
     // MARK: Helpers
-    func makeSut(item: Item, itemType: ItemType = .event) -> ItemViewModel {
-        return ItemViewModel(item: item, itemType: itemType)
+    func makeSut(item: Event, itemType: ItemType = .event) -> EventViewModel {
+        return EventViewModel(item: item, itemType: itemType)
     }
 
 }

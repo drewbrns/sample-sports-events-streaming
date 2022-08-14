@@ -1,5 +1,5 @@
 //
-//  ItemViewModel.swift
+//  EventViewModel.swift
 //  KodaboveAssessment
 //
 //  Created by Drew Barnes on 10/08/2022.
@@ -12,8 +12,8 @@ enum ItemType {
     case schedule
 }
 
-struct ItemViewModel {
-    private var item: Item
+struct EventViewModel {
+    private var item: Event
     private var itemType: ItemType
 
     var id: String {
@@ -35,7 +35,7 @@ struct ItemViewModel {
         return item.date
     }
 
-    init(item: Item, itemType: ItemType = .event) {
+    init(item: Event, itemType: ItemType = .event) {
         self.item = item
         self.itemType = itemType
     }
@@ -94,8 +94,8 @@ struct ItemViewModel {
 
 }
 
-extension ItemViewModel: Equatable {
-    static func == (lhs: ItemViewModel, rhs: ItemViewModel) -> Bool {
+extension EventViewModel: Equatable {
+    static func == (lhs: EventViewModel, rhs: EventViewModel) -> Bool {
         return lhs.item == rhs.item
     }
 }
