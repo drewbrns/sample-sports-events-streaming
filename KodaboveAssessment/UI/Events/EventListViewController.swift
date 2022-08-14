@@ -20,13 +20,13 @@ class EventListViewController: UIViewController {
         title = "Events"
 
         configureTableView()
-        bindFetchCompletePublisher()
+        bindVmPublishers()
 
         vm?.loadData(limit: PageSize.limit)
     }
 }
 
-extension EventListViewController {
+extension EventListViewController: AlertDisplayer {
 
     private func configureTableView() {
         registerCell()
@@ -36,6 +36,7 @@ extension EventListViewController {
 
     private func bindVmPublishers() {
         bindFetchCompletePublisher()
+        bindOnErrorrPublisher()
     }
 
     private func registerCell() {
@@ -59,6 +60,18 @@ extension EventListViewController {
             self?.tableView.reloadData()
         }.store(in: &cancellables)
     }
+
+    private func bindOnErrorrPublisher() {
+        vm?.$onError.sink { [weak self] error in
+            guard let error = error else { return }
+            self?.displayAlert(
+                with: "Error",
+                message: error.localizedDescription,
+                preferredStyle: .alert
+            )
+        }.store(in: &cancellables)
+    }
+
 }
 
 extension EventListViewController: UITableViewDataSource {
