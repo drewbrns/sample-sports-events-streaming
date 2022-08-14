@@ -35,6 +35,12 @@ final class RemoteItemLoader: ItemLoader {
         .receive(on: DispatchQueue.main)
         .sink(receiveCompletion: {
             print("Received completion: \($0).")
+            switch $0 {
+            case .failure(let error):
+                completion(.failure(error))
+            case .finished:
+                break
+            }
         },
         receiveValue: { items in
             completion(.success(items))

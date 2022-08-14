@@ -29,7 +29,7 @@ final class ItemListViewModel: ObservableObject, ItemList {
     private(set) var totalCount: Int = 0
     var currentCount: Int { items.count }
 
-    private var isLoadingData = false
+    private(set) var isLoadingData = false
     private var currentPage = 1
 
     private var items = [Item]()
@@ -56,16 +56,23 @@ final class ItemListViewModel: ObservableObject, ItemList {
 
             switch result {
             case .success(let items):
-                self?.currentPage += 1
-                self?.totalCount = items.count // assuming that api told us the total number of items
+                self?.totalCount = items.count // assuming that api told us the total number of items in the db
 
                 let newItems = self?.sort(items: items) ?? [Item]()
-                self?.items = newItems
-                let indexPathsToReload = IndexPath.generateIndexPaths(
-                    rowStart: items.count,
-                    rowEnd: newItems.count
-                )
-                self?.onFetchComplete = indexPathsToReload
+                // ensure uniqueness and append to list
+                self?.items = newItems // append to list
+
+                if (self?.currentPage ?? 1) > 1 {
+                    let indexPathsToReload = IndexPath.generateIndexPaths(
+                        rowStart: items.count,
+                        rowEnd: newItems.count
+                    )
+                    self?.onFetchComplete = indexPathsToReload
+                } else {
+                    self?.onFetchComplete = .none
+                }
+
+                self?.currentPage += 1
             case .failure(let error):
                 self?.onError = error
             }
