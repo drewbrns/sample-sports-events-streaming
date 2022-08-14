@@ -31,6 +31,7 @@
 		3A6C94CF28A805D800F18AA3 /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94CE28A805D800F18AA3 /* AppImages.swift */; };
 		3A6C94D228A80CD800F18AA3 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94D128A80CD800F18AA3 /* ScheduleViewController.swift */; };
 		3A6C94D428A80DA400F18AA3 /* ScheduleViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94D328A80DA400F18AA3 /* ScheduleViewControllerTests.swift */; };
+		3A6C94DD28A8746F00F18AA3 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 3A6C94DC28A8746F00F18AA3 /* SkeletonView */; };
 		3AFB4A0928A5C7230092B784 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0828A5C7230092B784 /* EventListViewController.swift */; };
 		3AFB4A0B28A5C7340092B784 /* EventListControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0A28A5C7340092B784 /* EventListControllerTests.swift */; };
 		3AFB4A0D28A5C8730092B784 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0C28A5C8730092B784 /* AppStoryboard.swift */; };
@@ -84,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6C94DD28A8746F00F18AA3 /* SkeletonView in Frameworks */,
 				3A6AF60D28A2E7B80072F759 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +243,7 @@
 			name = KodaboveAssessment;
 			packageProductDependencies = (
 				3A6AF60C28A2E7B80072F759 /* Nuke */,
+				3A6C94DC28A8746F00F18AA3 /* SkeletonView */,
 			);
 			productName = KodaboveAssessment;
 			productReference = 3A6AF5D828A250070072F759 /* KodaboveAssessment.app */;
@@ -295,6 +298,7 @@
 			mainGroup = 3A6AF5CF28A250070072F759;
 			packageReferences = (
 				3A6AF60B28A2E7B80072F759 /* XCRemoteSwiftPackageReference "Nuke" */,
+				3A6C94DB28A8746F00F18AA3 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 3A6AF5D928A250070072F759 /* Products */;
 			projectDirPath = "";
@@ -683,6 +687,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		3A6C94DB28A8746F00F18AA3 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -690,6 +702,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3A6AF60B28A2E7B80072F759 /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
+		};
+		3A6C94DC28A8746F00F18AA3 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A6C94DB28A8746F00F18AA3 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
