@@ -5,7 +5,7 @@ App to display a list of events, stream selected event and a list of schedule (E
 
 Things to note:
 1. This app simulates pagination by allowing users to infinitely scroll until 100 items are loaded from the remote api.
-2. User would see duplicates because the api was called multiple times and received the same data after reach call.
+2. User would see duplicates because the api was called multiple times and received the same data after each call.
 3. After user scrolls back to the top of the page, the duplicates would be evident since all the data is sorted based on Date in ascending order. 
 
 See images below
