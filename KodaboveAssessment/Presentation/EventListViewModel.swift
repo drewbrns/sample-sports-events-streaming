@@ -29,7 +29,7 @@ final class EventListViewModel: ObservableObject, ItemList {
     private(set) var totalCount: Int = 0
     var currentCount: Int { items.count }
 
-    private(set) var isLoadingData = false
+    private(set) var isLoadingData = CurrentValueSubject<Bool, Never>(false)
     private var currentPage = 1
 
     private var items = [Event]()
@@ -50,17 +50,16 @@ final class EventListViewModel: ObservableObject, ItemList {
     }
 
     func loadData(limit: Int = 10) {
-        guard !isLoadingData else { return }
+        guard !isLoadingData.value else { return }
 
-        self.isLoadingData = true
+        self.isLoadingData.send(true)
         self.dataLoader.fetch(page: self.currentPage, limit: limit) { [weak self] result in
-            self?.isLoadingData = false
+            self?.isLoadingData.send(false)
 
             switch result {
             case .success(let items):
                 self?.currentPage += 1
                 self?.totalCount = 100 // Faking total number of items on server
-//                self?.totalCount = items.count
                 self?.items.append(contentsOf: items)
                 self?.items = self?.sort(items: self?.items) ?? [Event]()
 
