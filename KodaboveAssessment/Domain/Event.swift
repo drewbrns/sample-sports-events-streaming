@@ -8,10 +8,10 @@
 import Foundation
 
 struct Event: Identifiable, Codable {
-    var id: String
-    var title: String
-    var subtitle: String
-    var date: Date
+    let id: String
+    let title: String
+    let subtitle: String
+    let date: Date
     var imageUrl: URL
     var videoUrl: URL?
 }

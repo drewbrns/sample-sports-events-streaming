@@ -33,6 +33,7 @@
 		3A6C94D428A80DA400F18AA3 /* ScheduleViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94D328A80DA400F18AA3 /* ScheduleViewControllerTests.swift */; };
 		3A6C94DD28A8746F00F18AA3 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 3A6C94DC28A8746F00F18AA3 /* SkeletonView */; };
 		3A6C94DF28A879DB00F18AA3 /* AlertDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94DE28A879DB00F18AA3 /* AlertDisplayer.swift */; };
+		3AF7551928C412F2000B022F /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF7551828C412F2000B022F /* EventTests.swift */; };
 		3AFB4A0928A5C7230092B784 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0828A5C7230092B784 /* EventListViewController.swift */; };
 		3AFB4A0B28A5C7340092B784 /* EventListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0A28A5C7340092B784 /* EventListViewControllerTests.swift */; };
 		3AFB4A0D28A5C8730092B784 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0C28A5C8730092B784 /* AppStoryboard.swift */; };
@@ -77,6 +78,7 @@
 		3A6C94D128A80CD800F18AA3 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		3A6C94D328A80DA400F18AA3 /* ScheduleViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewControllerTests.swift; sourceTree = "<group>"; };
 		3A6C94DE28A879DB00F18AA3 /* AlertDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayer.swift; sourceTree = "<group>"; };
+		3AF7551828C412F2000B022F /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
 		3AFB4A0828A5C7230092B784 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		3AFB4A0A28A5C7340092B784 /* EventListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewControllerTests.swift; sourceTree = "<group>"; };
 		3AFB4A0C28A5C8730092B784 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				3AFB4A0A28A5C7340092B784 /* EventListViewControllerTests.swift */,
 				3A6C94CC28A7B0DB00F18AA3 /* EventViewModelTests.swift */,
 				3A6C94D328A80DA400F18AA3 /* ScheduleViewControllerTests.swift */,
+				3AF7551828C412F2000B022F /* EventTests.swift */,
 			);
 			path = KodaboveAssessmentTests;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				3A6AF61E28A44B990072F759 /* EventListViewModelTests.swift in Sources */,
 				3A6AF62A28A47FC60072F759 /* IndexPathAdditionsTests.swift in Sources */,
 				3A6C94CD28A7B0DB00F18AA3 /* EventViewModelTests.swift in Sources */,
+				3AF7551928C412F2000B022F /* EventTests.swift in Sources */,
 				3AFB4A0B28A5C7340092B784 /* EventListViewControllerTests.swift in Sources */,
 				3A6C94C928A6FD1000F18AA3 /* TestHelpers.swift in Sources */,
 				3A6C94D428A80DA400F18AA3 /* ScheduleViewControllerTests.swift in Sources */,
