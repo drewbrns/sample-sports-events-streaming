@@ -16,7 +16,9 @@ pipeline {
 
         stage("deploy") {
             steps {
-                echo 'Deploying application'
+                retry (5) {
+                    echo 'Deploying application'
+                }
             }
         }        
     }
