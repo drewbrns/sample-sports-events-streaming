@@ -85,7 +85,7 @@ extension EventListViewController {
 
     func shouldShowLoadingAnimatation() -> Bool {
         guard let vm = vm else { return true }
-        return vm.isLoadingData && vm.totalCount < 1
+        return vm.isLoadingData.value && vm.totalCount < 1
     }
 
 }

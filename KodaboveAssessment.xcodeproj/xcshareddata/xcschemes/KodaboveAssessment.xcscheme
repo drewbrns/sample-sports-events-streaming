@@ -49,6 +49,16 @@
                ReferencedContainer = "container:KodaboveAssessment.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3A411D9828CE1FA2007F84D1"
+               BuildableName = "KodaboveAssessmentUITests.xctest"
+               BlueprintName = "KodaboveAssessmentUITests"
+               ReferencedContainer = "container:KodaboveAssessment.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
