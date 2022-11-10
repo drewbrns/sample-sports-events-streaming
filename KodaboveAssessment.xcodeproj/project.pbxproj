@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A411D9C28CE1FA2007F84D1 /* KodaboveAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A411D9B28CE1FA2007F84D1 /* KodaboveAssessmentUITests.swift */; };
+		3A411D9E28CE1FA2007F84D1 /* KodaboveAssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A411D9D28CE1FA2007F84D1 /* KodaboveAssessmentUITestsLaunchTests.swift */; };
 		3A6AF5DC28A250070072F759 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF5DB28A250070072F759 /* AppDelegate.swift */; };
 		3A6AF5DE28A250070072F759 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF5DD28A250070072F759 /* SceneDelegate.swift */; };
 		3A6AF5E328A250070072F759 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A6AF5E128A250070072F759 /* Main.storyboard */; };
@@ -33,12 +35,20 @@
 		3A6C94D428A80DA400F18AA3 /* ScheduleViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94D328A80DA400F18AA3 /* ScheduleViewControllerTests.swift */; };
 		3A6C94DD28A8746F00F18AA3 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 3A6C94DC28A8746F00F18AA3 /* SkeletonView */; };
 		3A6C94DF28A879DB00F18AA3 /* AlertDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94DE28A879DB00F18AA3 /* AlertDisplayer.swift */; };
+		3AF7551928C412F2000B022F /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF7551828C412F2000B022F /* EventTests.swift */; };
 		3AFB4A0928A5C7230092B784 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0828A5C7230092B784 /* EventListViewController.swift */; };
 		3AFB4A0B28A5C7340092B784 /* EventListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0A28A5C7340092B784 /* EventListViewControllerTests.swift */; };
 		3AFB4A0D28A5C8730092B784 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB4A0C28A5C8730092B784 /* AppStoryboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3A411D9F28CE1FA2007F84D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A6AF5D028A250070072F759 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A6AF5D728A250070072F759;
+			remoteInfo = KodaboveAssessment;
+		};
 		3A6AF5EF28A250080072F759 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3A6AF5D028A250070072F759 /* Project object */;
@@ -49,6 +59,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A411D9928CE1FA2007F84D1 /* KodaboveAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KodaboveAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A411D9B28CE1FA2007F84D1 /* KodaboveAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KodaboveAssessmentUITests.swift; sourceTree = "<group>"; };
+		3A411D9D28CE1FA2007F84D1 /* KodaboveAssessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KodaboveAssessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3A6AF5D828A250070072F759 /* KodaboveAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KodaboveAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A6AF5DB28A250070072F759 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A6AF5DD28A250070072F759 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,12 +90,20 @@
 		3A6C94D128A80CD800F18AA3 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		3A6C94D328A80DA400F18AA3 /* ScheduleViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewControllerTests.swift; sourceTree = "<group>"; };
 		3A6C94DE28A879DB00F18AA3 /* AlertDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayer.swift; sourceTree = "<group>"; };
+		3AF7551828C412F2000B022F /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
 		3AFB4A0828A5C7230092B784 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		3AFB4A0A28A5C7340092B784 /* EventListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewControllerTests.swift; sourceTree = "<group>"; };
 		3AFB4A0C28A5C8730092B784 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3A411D9628CE1FA2007F84D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A6AF5D528A250070072F759 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -102,11 +123,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A411D9A28CE1FA2007F84D1 /* KodaboveAssessmentUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3A411D9B28CE1FA2007F84D1 /* KodaboveAssessmentUITests.swift */,
+				3A411D9D28CE1FA2007F84D1 /* KodaboveAssessmentUITestsLaunchTests.swift */,
+			);
+			path = KodaboveAssessmentUITests;
+			sourceTree = "<group>";
+		};
 		3A6AF5CF28A250070072F759 = {
 			isa = PBXGroup;
 			children = (
 				3A6AF5DA28A250070072F759 /* KodaboveAssessment */,
 				3A6AF5F128A250080072F759 /* KodaboveAssessmentTests */,
+				3A411D9A28CE1FA2007F84D1 /* KodaboveAssessmentUITests */,
 				3A6AF5D928A250070072F759 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,6 +147,7 @@
 			children = (
 				3A6AF5D828A250070072F759 /* KodaboveAssessment.app */,
 				3A6AF5EE28A250080072F759 /* KodaboveAssessmentTests.xctest */,
+				3A411D9928CE1FA2007F84D1 /* KodaboveAssessmentUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,6 +178,7 @@
 				3AFB4A0A28A5C7340092B784 /* EventListViewControllerTests.swift */,
 				3A6C94CC28A7B0DB00F18AA3 /* EventViewModelTests.swift */,
 				3A6C94D328A80DA400F18AA3 /* ScheduleViewControllerTests.swift */,
+				3AF7551828C412F2000B022F /* EventTests.swift */,
 			);
 			path = KodaboveAssessmentTests;
 			sourceTree = "<group>";
@@ -230,6 +263,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3A411D9828CE1FA2007F84D1 /* KodaboveAssessmentUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A411DA328CE1FA2007F84D1 /* Build configuration list for PBXNativeTarget "KodaboveAssessmentUITests" */;
+			buildPhases = (
+				3A411D9528CE1FA2007F84D1 /* Sources */,
+				3A411D9628CE1FA2007F84D1 /* Frameworks */,
+				3A411D9728CE1FA2007F84D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A411DA028CE1FA2007F84D1 /* PBXTargetDependency */,
+			);
+			name = KodaboveAssessmentUITests;
+			productName = KodaboveAssessmentUITests;
+			productReference = 3A411D9928CE1FA2007F84D1 /* KodaboveAssessmentUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		3A6AF5D728A250070072F759 /* KodaboveAssessment */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A6AF60228A250080072F759 /* Build configuration list for PBXNativeTarget "KodaboveAssessment" */;
@@ -280,6 +331,10 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					3A411D9828CE1FA2007F84D1 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 3A6AF5D728A250070072F759;
+					};
 					3A6AF5D728A250070072F759 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -309,11 +364,19 @@
 			targets = (
 				3A6AF5D728A250070072F759 /* KodaboveAssessment */,
 				3A6AF5ED28A250080072F759 /* KodaboveAssessmentTests */,
+				3A411D9828CE1FA2007F84D1 /* KodaboveAssessmentUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3A411D9728CE1FA2007F84D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A6AF5D628A250070072F759 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -356,6 +419,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3A411D9528CE1FA2007F84D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A411D9C28CE1FA2007F84D1 /* KodaboveAssessmentUITests.swift in Sources */,
+				3A411D9E28CE1FA2007F84D1 /* KodaboveAssessmentUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A6AF5D428A250070072F759 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,6 +459,7 @@
 				3A6AF61E28A44B990072F759 /* EventListViewModelTests.swift in Sources */,
 				3A6AF62A28A47FC60072F759 /* IndexPathAdditionsTests.swift in Sources */,
 				3A6C94CD28A7B0DB00F18AA3 /* EventViewModelTests.swift in Sources */,
+				3AF7551928C412F2000B022F /* EventTests.swift in Sources */,
 				3AFB4A0B28A5C7340092B784 /* EventListViewControllerTests.swift in Sources */,
 				3A6C94C928A6FD1000F18AA3 /* TestHelpers.swift in Sources */,
 				3A6C94D428A80DA400F18AA3 /* ScheduleViewControllerTests.swift in Sources */,
@@ -396,6 +469,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3A411DA028CE1FA2007F84D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A6AF5D728A250070072F759 /* KodaboveAssessment */;
+			targetProxy = 3A411D9F28CE1FA2007F84D1 /* PBXContainerItemProxy */;
+		};
 		3A6AF5F028A250080072F759 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3A6AF5D728A250070072F759 /* KodaboveAssessment */;
@@ -423,6 +501,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3A411DA128CE1FA2007F84D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 23NB49RD34;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.drewbrns.KodaboveAssessmentUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KodaboveAssessment;
+			};
+			name = Debug;
+		};
+		3A411DA228CE1FA2007F84D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 23NB49RD34;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.drewbrns.KodaboveAssessmentUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KodaboveAssessment;
+			};
+			name = Release;
+		};
 		3A6AF60028A250080072F759 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -653,6 +765,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3A411DA328CE1FA2007F84D1 /* Build configuration list for PBXNativeTarget "KodaboveAssessmentUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A411DA128CE1FA2007F84D1 /* Debug */,
+				3A411DA228CE1FA2007F84D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3A6AF5D328A250070072F759 /* Build configuration list for PBXProject "KodaboveAssessment" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

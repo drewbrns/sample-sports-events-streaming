@@ -80,7 +80,7 @@ extension ScheduleViewController {
 
     func shouldShowLoadingAnimatation() -> Bool {
         guard let vm = vm else { return true }
-        return vm.isLoadingData && vm.totalCount < 1
+        return vm.isLoadingData.value && vm.totalCount < 1
     }
 
 }
@@ -121,9 +121,9 @@ extension ScheduleViewController {
     }
 
     func visibleIndexPathsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
-      let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows ?? []
-      let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
-      return Array(indexPathsIntersection)
+        let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows ?? []
+        let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
+        return Array(indexPathsIntersection)
     }
 
 }
