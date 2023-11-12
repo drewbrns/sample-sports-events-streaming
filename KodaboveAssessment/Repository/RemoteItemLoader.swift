@@ -12,16 +12,21 @@ final class RemoteItemLoader: ItemLoader {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    private var resource: String
-    private var url: URL {
-        return URL(string: "\(Server.baseUrl)/\(self.resource)")!
+    private var resource: Server.Endpoint
+    private var url: URL? {
+        Server.url(for: resource)
     }
 
-    init(resource: Server.endpoints) {
-        self.resource = resource.rawValue
+    init(resource: Server.Endpoint) {
+        self.resource = resource
     }
 
     func fetch(page: Int, limit: Int, completion: @escaping (Result<[Event], Error>) -> Void) {
+
+        guard let url = url else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
 
         URLSession.shared.dataTaskPublisher(for: url).tryMap { element -> Data in
             guard let httpResponse = element.response as? HTTPURLResponse,
@@ -34,7 +39,6 @@ final class RemoteItemLoader: ItemLoader {
         .decode(type: [Event].self, decoder: dateAwareJsonDecoder)
         .receive(on: DispatchQueue.main)
         .sink(receiveCompletion: {
-            print("Received completion: \($0).")
             switch $0 {
             case .failure(let error):
                 completion(.failure(error))

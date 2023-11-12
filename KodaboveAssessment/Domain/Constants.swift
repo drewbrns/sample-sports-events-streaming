@@ -7,16 +7,17 @@
 
 import Foundation
 
-struct Server {
-    static var baseUrl = "https://us-central1-dazn-sandbox.cloudfunctions.net"
+enum Server {
+    static private let baseUrl = "https://us-central1-dazn-sandbox.cloudfunctions.net"
 
-    enum endpoints: String {
+    enum Endpoint: String {
         case events = "getEvents"
         case schedule = "getSchedule"
+    }
 
-        var toString: String {
-            self.rawValue
-        }
+    static func url(for endpoint: Endpoint) -> URL? {
+        let urlString = Self.baseUrl + "/" + endpoint.rawValue
+        return URL(string: urlString)
     }
 }
 

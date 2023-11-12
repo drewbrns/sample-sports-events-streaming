@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A411D9C28CE1FA2007F84D1 /* KodaboveAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A411D9B28CE1FA2007F84D1 /* KodaboveAssessmentUITests.swift */; };
 		3A411D9E28CE1FA2007F84D1 /* KodaboveAssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A411D9D28CE1FA2007F84D1 /* KodaboveAssessmentUITestsLaunchTests.swift */; };
+		3A5E20622B0167CA005EC818 /* ConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E20612B0167CA005EC818 /* ConstantsTests.swift */; };
 		3A6AF5DC28A250070072F759 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF5DB28A250070072F759 /* AppDelegate.swift */; };
 		3A6AF5DE28A250070072F759 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AF5DD28A250070072F759 /* SceneDelegate.swift */; };
 		3A6AF5E328A250070072F759 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A6AF5E128A250070072F759 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		3A411D9928CE1FA2007F84D1 /* KodaboveAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KodaboveAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A411D9B28CE1FA2007F84D1 /* KodaboveAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KodaboveAssessmentUITests.swift; sourceTree = "<group>"; };
 		3A411D9D28CE1FA2007F84D1 /* KodaboveAssessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KodaboveAssessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3A5E20612B0167CA005EC818 /* ConstantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsTests.swift; sourceTree = "<group>"; };
 		3A6AF5D828A250070072F759 /* KodaboveAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KodaboveAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A6AF5DB28A250070072F759 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A6AF5DD28A250070072F759 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				3A6C94CC28A7B0DB00F18AA3 /* EventViewModelTests.swift */,
 				3A6C94D328A80DA400F18AA3 /* ScheduleViewControllerTests.swift */,
 				3AF7551828C412F2000B022F /* EventTests.swift */,
+				3A5E20612B0167CA005EC818 /* ConstantsTests.swift */,
 			);
 			path = KodaboveAssessmentTests;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				3AFB4A0B28A5C7340092B784 /* EventListViewControllerTests.swift in Sources */,
 				3A6C94C928A6FD1000F18AA3 /* TestHelpers.swift in Sources */,
 				3A6C94D428A80DA400F18AA3 /* ScheduleViewControllerTests.swift in Sources */,
+				3A5E20622B0167CA005EC818 /* ConstantsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

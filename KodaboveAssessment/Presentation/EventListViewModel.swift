@@ -19,7 +19,7 @@ protocol ItemList {
     func stopLoadingData()
 }
 
-final class EventListViewModel: ObservableObject, ItemList {
+final class EventListViewModel: ItemList {
     @Published private(set) var onFetchComplete: [IndexPath]?
     @Published private(set) var onError: Error?
     private var timerCancellable: AnyCancellable?
